@@ -40,7 +40,7 @@ $nav_html = $rendered_results->{html};
 <head>
 <title>{#SUBJECT_LOC#}</title>
 <link rel="stylesheet" href="$(ROOT)/style.css" type="text/css" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <meta name="author" content="Shlomi Fish" />
 <:{
 use CGI qw();
