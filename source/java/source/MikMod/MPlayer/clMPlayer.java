@@ -366,8 +366,8 @@ public static int getoldperiod(short note, int c2spd)
 
 public int GetPeriod(short note,int c2spd)
 {
-	if((pf.flags&m_.MUniTrk.UF_XMPERIODS) != 0){
-		return ((pf.flags&m_.MUniTrk.UF_LINEAR) != 0) ? getlinearperiod(note,c2spd) : getlogperiod(note,c2spd);
+	if((pf.flags&MikMod.MUniTrk.clMUniTrk.UF_XMPERIODS) != 0){
+		return ((pf.flags&MikMod.MUniTrk.clMUniTrk.UF_LINEAR) != 0) ? getlinearperiod(note,c2spd) : getlogperiod(note,c2spd);
 	}
 	return(getoldperiod(note,c2spd));
 }
@@ -969,7 +969,7 @@ public void PlayNote()
 
 		switch(c){
 
-			case m_.MUniTrk.UNI_NOTE:
+			case MikMod.MUniTrk.clMUniTrk.UNI_NOTE:
 				note=m_.MUniTrk.UniGetByte();
 
 				if(note==96){                   /* key off ? */
@@ -996,7 +996,7 @@ public void PlayNote()
 				}
 				break;
 
-			case m_.MUniTrk.UNI_INSTRUMENT:
+			case MikMod.MUniTrk.clMUniTrk.UNI_INSTRUMENT:
 				inst=m_.MUniTrk.UniGetByte();
 				if(inst>=pf.numins) break;             /* <- safety valve */
 
@@ -1059,28 +1059,28 @@ public void PlayEffects()
 
 		switch(c){
 
-			case m_.MUniTrk.UNI_NOTE:
-			case m_.MUniTrk.UNI_INSTRUMENT:
+			case MikMod.MUniTrk.clMUniTrk.UNI_NOTE:
+			case MikMod.MUniTrk.clMUniTrk.UNI_INSTRUMENT:
 				m_.MUniTrk.UniSkipOpcode(c);
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT0:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT0:
 				DoPTEffect0(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT1:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT1:
 				dat=m_.MUniTrk.UniGetByte();
 				if(dat!=0) a.slidespeed=(int)dat<<2;
 				if(vbtick != 0) a.tmpperiod-=a.slidespeed;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT2:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT2:
 				dat=m_.MUniTrk.UniGetByte();
 				if(dat!=0) a.slidespeed=(int)dat<<2;
 				if(vbtick != 0) a.tmpperiod+=a.slidespeed;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT3:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT3:
 				dat=m_.MUniTrk.UniGetByte();
 				a.kick=false;                              /* temp XM fix */
 				if(dat!=0){
@@ -1091,7 +1091,7 @@ public void PlayEffects()
 				a.ownper=1;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT4:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT4:
 				dat=m_.MUniTrk.UniGetByte();
 				if((dat&0x0f) != 0) a.vibdepth=(short)(dat&0xf);
 				if((dat&0xf0) != 0) a.vibspd=(short)((dat&0xf0)>>2);
@@ -1099,7 +1099,7 @@ public void PlayEffects()
 				a.ownper=1;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT5:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT5:
 				dat=m_.MUniTrk.UniGetByte();
 				a.kick=false;
 				DoToneSlide();
@@ -1107,14 +1107,14 @@ public void PlayEffects()
 				a.ownper=1;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT6:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT6:
 				dat=m_.MUniTrk.UniGetByte();
 				DoVibrato();
 				DoVolSlide(dat);
 				a.ownper=1;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT7:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT7:
 				dat=m_.MUniTrk.UniGetByte();
 				if((dat&0x0f) != 0) a.trmdepth=(short)(dat&0xf);
 				if((dat&0xf0) != 0) a.trmspd=(short)((dat&0xf0)>>2);
@@ -1122,26 +1122,26 @@ public void PlayEffects()
 				a.ownvol=1;
 				break;
 
-                        case m_.MUniTrk.UNI_PTEFFECT8:
-                                dat=m_.MUniTrk.UniGetByte();
-                                if(mp_panning){
-                                        a.panning=dat;
-                                        pf.panning[mp_channel]=dat;
-                                }
-                                break;
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT8:
+				dat=m_.MUniTrk.UniGetByte();
+				if(mp_panning){
+					a.panning=dat;
+					pf.panning[mp_channel]=dat;
+				}
+				break;
 
-			case m_.MUniTrk.UNI_PTEFFECT9:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECT9:
 				dat=m_.MUniTrk.UniGetByte();
 				if(dat != 0) a.soffset=(int)dat<<8;       /* <- 0.43 fix.. */
 				a.start=a.soffset;
 				if(a.start>a.s.length) a.start=a.s.length;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTA:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTA:
 				DoVolSlide(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTB:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTB:
 				dat=m_.MUniTrk.UniGetByte();
 				if(patdly2 != 0) break;
 				if(dat<mp_sngpos) break; /* avoid eternal looping */
@@ -1150,14 +1150,14 @@ public void PlayEffects()
 				posjmp=3; 
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTC:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTC:
 				dat=m_.MUniTrk.UniGetByte();
 				if(vbtick != 0) break;
 				if(dat>64) dat=64;
 				a.tmpvolume=(byte)dat;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTD:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTD:
 				dat=m_.MUniTrk.UniGetByte();
 				if(patdly2 != 0) break;
 				{
@@ -1169,11 +1169,11 @@ public void PlayEffects()
 				posjmp=3;
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTE:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTE:
 				DoEEffects(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_PTEFFECTF:
+			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTF:
 				dat=m_.MUniTrk.UniGetByte();
 
 				if((vbtick != 0) || (patdly2 != 0)) break;
@@ -1190,48 +1190,48 @@ public void PlayEffects()
 				}
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTD:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTD:
 				DoS3MVolSlide(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTE:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTE:
 				DoS3MSlideDn(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTF:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTF:
 				DoS3MSlideUp(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTI:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTI:
 				DoS3MTremor(m_.MUniTrk.UniGetByte());
 				a.ownvol=1;
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTQ:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTQ:
 				DoS3MRetrig(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTA:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTA:
 				DoS3MSpeed(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_S3MEFFECTT:
+			case MikMod.MUniTrk.clMUniTrk.UNI_S3MEFFECTT:
 				DoS3MTempo(m_.MUniTrk.UniGetByte());
 				break;
 
-			case m_.MUniTrk.UNI_XMEFFECTA:
+			case MikMod.MUniTrk.clMUniTrk.UNI_XMEFFECTA:
 				DoXMVolSlide(m_.MUniTrk.UniGetByte());
 				break;
 
-                        case m_.MUniTrk.UNI_XMEFFECTG:
+                        case MikMod.MUniTrk.clMUniTrk.UNI_XMEFFECTG:
                                 globalvolume=(byte)m_.MUniTrk.UniGetByte();
                                 break;
 
-                        case m_.MUniTrk.UNI_XMEFFECTH:
+                        case MikMod.MUniTrk.clMUniTrk.UNI_XMEFFECTH:
                                 DoXMGlobalSlide(m_.MUniTrk.UniGetByte());
                                 break;
 
-			case m_.MUniTrk.UNI_XMEFFECTP:
+			case MikMod.MUniTrk.clMUniTrk.UNI_XMEFFECTP:
 				DoXMPanSlide(m_.MUniTrk.UniGetByte());
 				break;
 
@@ -1447,7 +1447,7 @@ public void MP_HandleTick()
 
 				mp_channel=(short)t;
 				a=mp_audio[t];
-                                //a.row = (tr<pf.numtrk) ? m_.MUniTrk.UniFindRow(pf.tracks[tr],mp_patpos) : ((short*)null);
+                                //a.row = (tr<pf.numtrk) ? MikMod.MUniTrk.clMUniTrk.UniFindRow(pf.tracks[tr],mp_patpos) : ((short*)null);
                                 if (tr<pf.numtrk)
                                 {
                                     a.row = pf.tracks[tr];
@@ -1474,7 +1474,7 @@ public void MP_HandleTick()
 
 				switch(ui_result)
 					{
-					case m_.UI.UI_DELETE_MARKED:
+					case MikMod.UI.myUI.UI_DELETE_MARKED:
 						/*if(!m_.cur_mod.deleted)
 							break;
 						if(!unlink(m_.cur_mod.filename))
@@ -1485,13 +1485,15 @@ public void MP_HandleTick()
 						m_.Display.display_all(); */
 						/* FALL THROUGH */
 
-					case m_.UI.UI_NEXT_SONG:
+					case MikMod.UI.myUI.UI_NEXT_SONG:
 						m_.MDriver.MD_PatternChange();
 						m_.MPlayer.play_current=false;
 						break;
-					case m_.UI.UI_PREVIOUS_SONG: /* if halfway through mod restart it, if
+
+                    case MikMod.UI.myUI.UI_PREVIOUS_SONG: /* if halfway through mod restart it, if
 							          beginning jump to the previous one */
-						if ((m_.UI.count_song < m_.UI.SMALL_DELAY) && (m_.optind>1) )
+						if ((m_.UI.count_song < MikMod.UI.myUI.SMALL_DELAY) && 
+                            (m_.optind>1) )
 						{
 							m_.optind-=2;
 							m_.MPlayer.play_current=false;
@@ -1504,23 +1506,23 @@ public void MP_HandleTick()
 						m_.UI.count_song=0;
 						m_.MDriver.MD_PatternChange();
 						break;
-					case m_.UI.UI_QUIT:
+					case MikMod.UI.myUI.UI_QUIT:
 						m_.MDriver.MD_PatternChange();
 						quit=true;
 						break;
-					case m_.UI.UI_JUMP_TO_NEXT_PATTERN:
+					case MikMod.UI.myUI.UI_JUMP_TO_NEXT_PATTERN:
 						m_.MDriver.MD_PatternChange();
 						MP_NextPosition();
 						break;
-					case m_.UI.UI_JUMP_TO_PREV_PATTERN:
+					case MikMod.UI.myUI.UI_JUMP_TO_PREV_PATTERN:
 						m_.MDriver.MD_PatternChange();
-						if (m_.UI.count_pattern < m_.UI.SMALL_DELAY) /* near start of pattern? */
+						if (m_.UI.count_pattern < MikMod.UI.myUI.SMALL_DELAY) /* near start of pattern? */
 							MP_PrevPosition();
 						else
 							MP_RestartPosition();
 						m_.UI.count_pattern=0;
 						break;
-					case m_.UI.UI_PAUSE:
+					case MikMod.UI.myUI.UI_PAUSE:
 						pause_flag=~pause_flag;
 						if(pause_flag==127)
 						{
@@ -1552,31 +1554,31 @@ public void MP_HandleTick()
 						}
 						break;
 
-					case m_.UI.UI_SPEED_UP:
+					case MikMod.UI.myUI.UI_SPEED_UP:
 						if ((old_bpm*(speed_constant+0.05))<=255)
 							speed_constant+=0.05;
 						break;
-					case m_.UI.UI_SLOW_DOWN:
+					case MikMod.UI.myUI.UI_SLOW_DOWN:
 						if ((old_bpm*(speed_constant-0.05))>10)
 							speed_constant-=0.05;
 						break;
-					case m_.UI.UI_NORMAL_SPEED:
+					case MikMod.UI.myUI.UI_NORMAL_SPEED:
 						speed_constant=(float)1.0;
 						break;
-					case m_.UI.UI_VOL_UP:
+					case MikMod.UI.myUI.UI_VOL_UP:
 						if(mp_volume<250)
 							mp_volume+=5;
 						break;
-					case m_.UI.UI_VOL_DOWN:
+					case MikMod.UI.myUI.UI_VOL_DOWN:
 						if(mp_volume>5)
 							mp_volume-=5;
 						break;
 
-					case m_.UI.UI_NORMAL_VOL:
+					case MikMod.UI.myUI.UI_NORMAL_VOL:
 						mp_volume=100;
 						break;
 
-					case m_.UI.UI_MARK_DELETED:
+					case MikMod.UI.myUI.UI_MARK_DELETED:
 						if(!m_.cur_mod.deleted)
 							m_.cur_mod.deleted=true;
 						else if (m_.cur_mod.deleted==true)
@@ -1585,32 +1587,32 @@ public void MP_HandleTick()
 						m_.Display.display_all();
 						break;
 
-					case m_.UI.UI_SELECT_STEREO:
+					case MikMod.UI.myUI.UI_SELECT_STEREO:
 						m_.MDriver.md_mode |= m_.DMODE_STEREO;
 						reinit_audio=true;
 						break;
 
-					case m_.UI.UI_SELECT_MONO:
+					case MikMod.UI.myUI.UI_SELECT_MONO:
 						m_.MDriver.md_mode &= ~m_.DMODE_STEREO;
 						reinit_audio=true;
 						break;
 
-					case m_.UI.UI_SELECT_INTERP:
+					case MikMod.UI.myUI.UI_SELECT_INTERP:
 						m_.MDriver.md_mode |= m_.DMODE_INTERP;
 						reinit_audio=true;
 						break;
 
-					case m_.UI.UI_SELECT_NONINTERP:
+					case MikMod.UI.myUI.UI_SELECT_NONINTERP:
 						m_.MDriver.md_mode &= ~m_.DMODE_INTERP;
 						reinit_audio=true;
 						break;
 
-					case m_.UI.UI_SELECT_8BIT:
+					case MikMod.UI.myUI.UI_SELECT_8BIT:
 						m_.MDriver.md_mode &= ~m_.DMODE_16BITS;
 						reinit_audio=true;
 						break;
 
-					case m_.UI.UI_SELECT_16BIT:
+					case MikMod.UI.myUI.UI_SELECT_16BIT:
 						m_.MDriver.md_mode |= m_.DMODE_16BITS;
 						reinit_audio=true;
 						break;
@@ -1690,7 +1692,7 @@ public void MP_HandleTick()
                     // m_.MDriver.MD_VoiceSetPanning(t,(a.panning) & 0xFF);
 		}
 
-		if((pf.flags & m_.MUniTrk.UF_LINEAR) != 0)
+		if((pf.flags & MikMod.MUniTrk.clMUniTrk.UF_LINEAR) != 0)
 			m_.MDriver.MD_VoiceSetFrequency((short)t,GetFreq2(a.period));
 		else
 			m_.MDriver.MD_VoiceSetFrequency((short)t,(3579546<<2)/a.period);

@@ -226,7 +226,9 @@ public String DupStr(byte s[],short len)
 
                 if((d=new byte[len+1])!=null){
                     for(t=0;t<len;t++)
-                        d[t]=(s[t]>=0 && s[t]<32) ? ' ': s[t];
+                    {
+                        d[t]=((s[t]>=0 && s[t]<32) ? ((byte)' '): s[t]);
+                    }
                     d[t]=0;
                 }
                 String sPtr = new String(d, 0, 0, len);

@@ -120,11 +120,6 @@ class XMPATHEADER{
 	int packsize;                 /* (word) Packed patterndata size */
 }
 
-class MTMNOTE{
-	short a,b,c;
-}
-
-
 public class XM_Loader extends clLOADER
 {
 	public XMNOTE [] xmpat;

@@ -26,46 +26,46 @@ import MikMod.*;
 
 public class myUI extends Object
 {
-public final int BASE_UI = 10;
-public final int UI_NEXT_SONG =   (BASE_UI);            /* load next song */
+public static final int BASE_UI = 10;
+public static final int UI_NEXT_SONG =   (BASE_UI);            /* load next song */
 
-public final int UI_RESTART =(BASE_UI + 1);          /* restart current song. Not
+public static final int UI_RESTART =(BASE_UI + 1);          /* restart current song. Not
 					     quite jump to 0 */
-public final int UI_PREVIOUS_SONG =(BASE_UI + 2);    /* load previous song */
+public static final int UI_PREVIOUS_SONG =(BASE_UI + 2);    /* load previous song */
 
-public final int UI_LOAD_SONG =(BASE_UI + 3);        /* load song. Name as value */
-public final int UI_SET_BPM =(BASE_UI + 4);          /* set beat per minute to value */
+public static final int UI_LOAD_SONG =(BASE_UI + 3);        /* load song. Name as value */
+public static final int UI_SET_BPM =(BASE_UI + 4);          /* set beat per minute to value */
 
-public final int UI_JUMP_TO_NEXT_PATTERN= (BASE_UI + 5);  /* jump to pattern */
-public final int UI_RESTART_PATTERN= (BASE_UI + 7);  /* jump to pattern */
-public final int UI_JUMP_TO_PREV_PATTERN= (BASE_UI + 7);  /* jump to pattern */
+public static final int UI_JUMP_TO_NEXT_PATTERN= (BASE_UI + 5);  /* jump to pattern */
+public static final int UI_RESTART_PATTERN= (BASE_UI + 7);  /* jump to pattern */
+public static final int UI_JUMP_TO_PREV_PATTERN= (BASE_UI + 7);  /* jump to pattern */
 
-public final int UI_QUIT= (BASE_UI + 6);             /* need I say more ? */
-public final int UI_DISPLAY= (BASE_UI + 7);          /* status of scrolling window:
+public static final int UI_QUIT= (BASE_UI + 6);             /* need I say more ? */
+public static final int UI_DISPLAY= (BASE_UI + 7);          /* status of scrolling window:
 					     true or false */
-public final int UI_PAUSE= (BASE_UI + 8);             /* need I say more ? */
+public static final int UI_PAUSE= (BASE_UI + 8);             /* need I say more ? */
 
-public final int UI_SPEED_UP= (BASE_UI + 9);             /* raise the speed */
-public final int UI_SLOW_DOWN= (BASE_UI + 10);         /* slow down */
-public final int UI_NORMAL_SPEED= (BASE_UI + 11);      /* return to normal */
+public static final int UI_SPEED_UP= (BASE_UI + 9);             /* raise the speed */
+public static final int UI_SLOW_DOWN= (BASE_UI + 10);         /* slow down */
+public static final int UI_NORMAL_SPEED= (BASE_UI + 11);      /* return to normal */
 
-public final int UI_VOL_UP= (BASE_UI + 12);             /* raise the volume */
-public final int UI_VOL_DOWN= (BASE_UI + 13);         /* quieten down */
-public final int UI_NORMAL_VOL= (BASE_UI + 14);      /* return to normal */
+public static final int UI_VOL_UP= (BASE_UI + 12);             /* raise the volume */
+public static final int UI_VOL_DOWN= (BASE_UI + 13);         /* quieten down */
+public static final int UI_NORMAL_VOL= (BASE_UI + 14);      /* return to normal */
 
-public final int UI_MARK_DELETED= (BASE_UI + 15); /* mark mod for deletion */
-public final int UI_DELETE_MARKED= (BASE_UI + 16); /* delete MARKED mods, ignore otherwise */
+public static final int UI_MARK_DELETED= (BASE_UI + 15); /* mark mod for deletion */
+public static final int UI_DELETE_MARKED= (BASE_UI + 16); /* delete MARKED mods, ignore otherwise */
 
-public final int UI_SELECT_MONO= (BASE_UI + 17);	/* additions for changing of audio */
-public final int UI_SELECT_STEREO= (BASE_UI + 18); /* paramaters on the fly */
+public static final int UI_SELECT_MONO= (BASE_UI + 17);	/* additions for changing of audio */
+public static final int UI_SELECT_STEREO= (BASE_UI + 18); /* paramaters on the fly */
 
-public final int UI_SELECT_INTERP= (BASE_UI + 19);
-public final int UI_SELECT_NONINTERP= (BASE_UI + 20);
+public static final int UI_SELECT_INTERP= (BASE_UI + 19);
+public static final int UI_SELECT_NONINTERP= (BASE_UI + 20);
 
-public final int UI_SELECT_8BIT= (BASE_UI + 21);
-public final int UI_SELECT_16BIT= (BASE_UI + 22);
+public static final int UI_SELECT_8BIT= (BASE_UI + 21);
+public static final int UI_SELECT_16BIT= (BASE_UI + 22);
 
-public final int SMALL_DELAY = 15;
+public static final int SMALL_DELAY = 15;
 
 
 	public clMain m_;

@@ -313,13 +313,16 @@ public int main(String nargv[])
 	*/
 
 
-	NS_Driver cl_drv_nos = new NS_Driver(this);
-	MDriver.MD_RegisterDriver(cl_drv_nos);
-	Raw_Driver cl_drv_raw = new Raw_Driver(this);
-        MDriver.MD_RegisterDriver(cl_drv_raw);
-        Native_Driver cl_drv_native = new Native_Driver(this);
-        MDriver.MD_RegisterDriver(cl_drv_native);
-	
+    NS_Driver cl_drv_nos = new NS_Driver(this);
+    MDriver.MD_RegisterDriver(cl_drv_nos);
+    Raw_Driver cl_drv_raw = new Raw_Driver(this);
+    MDriver.MD_RegisterDriver(cl_drv_raw);
+    /*
+     * Commenting out so we won't depend on the native extension.
+    Native_Driver cl_drv_native = new Native_Driver(this);
+    MDriver.MD_RegisterDriver(cl_drv_native);
+    */
+
 
 
 

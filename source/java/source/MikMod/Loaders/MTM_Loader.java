@@ -18,7 +18,7 @@ import java.io.*;
 
 
 class MTMHEADER{
-        byte id[];                            /* MTM file marker */
+	byte id[];                            /* MTM file marker */
 	short version;                          /* upper major, lower nibble minor version number */
 	byte  songname[];                     /* ASCIIZ songname */
 	short numtracks;                        /* number of tracks saved */
