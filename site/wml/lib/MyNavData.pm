@@ -30,6 +30,11 @@ my $tree_contents =
             'title' => "Download the code for the Site",
         },
         {
+            'text' => "Mailing Lists",
+            'url' => "mailing-lists/",
+            'title' => "Discuss MikMod for Java with other people by E-mail.",
+        },
+        {
             'separator' => 1,
             'skip' => 1,
         },
