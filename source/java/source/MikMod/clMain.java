@@ -324,6 +324,8 @@ public int main(String nargv[])
     */
     Wav_Driver cl_drv_wav = new Wav_Driver(this);
     MDriver.MD_RegisterDriver(cl_drv_wav);
+    JavaX_Driver cl_drv_javax = new JavaX_Driver(this);
+    MDriver.MD_RegisterDriver(cl_drv_javax);
 
 
 

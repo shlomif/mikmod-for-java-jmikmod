@@ -1,0 +1,5 @@
+* Make sure the JavaX sound driver can handle other configurations besides
+44.1KHz/Stereo/16-bit.
+
+* Create a base class for all the drivers in which the VC_ functions call
+the Virtch ones.
