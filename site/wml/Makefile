@@ -56,22 +56,8 @@ $(PODS_DESTS_HTMLS) :: $(TARGET)/%.html : src/%.pod
 upload: upload_berlios
 
 upload_berlios: all
-	(cd dest && $(RSYNC) -r * shlomif@shell.berlios.de:/home/groups/perl-begin/htdocs/)
-
-upload_iglu: all
-	(cd dest && $(RSYNC) -r * shlomif@iglu.org.il:/iglu/html/shlomif/Perl-Begin/)
+	(cd dest && $(RSYNC) -r * shlomif@shell.berlios.de:/home/groups/jmikmod/htdocs/)
 
 .PHONY: 
 
-$(DEST_ARC_PAGE) :: $(TARGET)/% : src/%.wml $(LIBRARY_FILES) .PHONY
-	(cd src && wml $(WML_FLAGS) -DARCNAME=$(ARC_NAME) -DFILENAME=$(patsubst src/%.wml,%,$<) $(patsubst src/%,%,$<)) > $@
-
-arc: $(DEST_ARC_NAME) $(DEST_ARC_PAGE)
-
-$(DEST_ARC_NAME):
-	(cd temp && ./make-archive.sh)
-	mv temp/$(ARC_NAME) $@
-
-upload_arc: arc
-	$(RSYNC) $(ARC_NAME) shlomif@shell.berlios.de:
 
