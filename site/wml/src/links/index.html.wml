@@ -38,3 +38,17 @@ pertinent document about MOD files and related software.
 </p>
 </div>
 
+<h2>Other Players</h2>
+
+<div class="textblock">
+<p>
+<a href="http://ana-mp.sourceforge.net/">ANA-MP</a> - a MOD-playing Library
+for Java that supports the .MOD, .XM, and .S3M formats. LGPL.
+</p>
+<p>
+<a href="http://xmp.sourceforge.net/">Extended Module Player (XMP)</a> - an
+open source MOD player written in C, that supports a very large number 
+of MOD formats.
+</p>
+</div>
+
