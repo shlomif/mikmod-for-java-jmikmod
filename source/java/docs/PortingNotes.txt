@@ -1,0 +1,60 @@
+Info about MMcpp v. 2.13
+
+Welcome to MMcpp - a C++ port of MikMod version 2.13 for UNIX. The
+sources in this distribution have the same functionality as MikMod and
+MikCvt, but with a different program structure. The reason for doing
+the conversion was to provide a C source that will be as close to Java
+as possible.
+
+The following changes were applied to the original source:
+
+1. Every module was encapsulated in its own class, the functions were
+turned to methods and the global variables converted to member
+variables. Some modules were implemented as a base class with two
+derived classes: one for the MikMod player and one for MikCvt.
+
+The basic architecture is that the main class (clMain or clMikCvtMain)
+contains pointers to the instances of the other module-objects, while
+every one of the latter have a pointer to the main class. In order to
+access a function or variable of another module one uses the
+"m_->[Module Name]->[FuncName/VarName]" syntax (m_ points to the main
+class in all the objects).
+
+2. The drivers and loaders architecture is implemented by managing a
+list of pointers to classes that are derived from the generic classes
+clDRIVER and clLOADER. Those contain a number of methods declared as
+'virtual', which are overrided by the specific loaders or modules.
+
+3. The typedefs UBYTE, SBYTE, UWORD, etc, were removed and replaced
+with their native C declarations. Unsigned bytes, words or double-words
+, that are not present in Java, were eliminated and replaced with
+signed data types.
+
+The header file "mtypes.h" now contains a Java-compatible "byte" alias
+for signed char, and a 'boolean' type with "true" and "false" values
+defined. The type 'char' was replaced with 'byte' were appropriated and
+'boolean' was used to declare True/False variables.
+
+Finally, the keyword 'null' now comes instead of 'NULL' in the source.
+
+Important Note:
+---------------
+
+Like Java, 'int' stands for a 32-bit signed integer. 'long' is not used
+because in Java, it represents a 64-bit integer. Therefore, it is
+possible that the code compile only on 32-bit platforms.
+
+
+4. I added two classes: String and RandomAccessFile that act much like
+their Java equivalents. They are used to replace the traditional C
+string operations and file I/O in the source.
+
+5. Calls to other libc routines (especially malloc, memcmp and
+friends) that may not be compatible with Java, were replaced by code
+that uses only the C/Java operators.
+
+6. Pointer arithmetics and pointer casting were eliminated.
+
+7. I make sure that all conditions in ifs, loops, etc. accept a boolean
+expression and not a mere integer. Java will not accept such constructs
+as 'if (1)'.
