@@ -21,6 +21,7 @@ body { background-color : lightblue }
     border-color : black;
     border-width : thick;
     border-style : double;
+    padding-left : 0.5em;
 }
 
 /*
