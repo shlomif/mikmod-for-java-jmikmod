@@ -1,0 +1,62 @@
+#include '../template.wml'
+
+<subject "About MikMod for Java" />
+
+<div class="textblock">
+<p>
+MikMod for Java is a Java port of the ANSI C MOD Player MikMod by Jean-Paul
+Mikkers and others. It was derived from version 2.14 of the player and so
+still lacks some features of recent versions such as support for the IT
+format.
+</p>
+<p>
+MOD files (or Amiga Soundtracker files) are music files that contain
+audio samples and then create different notes based on these samples, by
+changing their frequency.
+</p>
+</div>
+<h2>Formats Supported</h2>
+<div class="textblock">
+<ul>
+<li>
+MOD - 15 Channels.
+</li>
+<li>
+MOD - 31 Channels
+</li>
+<li>
+MTM
+</li>
+<li>
+STM - ScreamTracker version 2.0 format
+</li>
+<li>
+S3M - ScreamTracker version 3.0 format
+</li>
+<li>
+XM
+</li>
+<li>
+669
+</li>
+<li>
+ULT - Ultra Tracker.
+</li>
+<li>
+UNI - (MikMod's own internal format)
+</li>
+</ul>
+</div>
+<h2>Credits</h2>
+<div class="textblock">
+<p>
+Original ANSI C Version by Jean-Paul Mikkers, with contributions from
+Steve McIntyre and others.
+</p>
+<p>
+Porting to Java by Shlomi Fish.
+</p>
+<p>
+Input and corrections by: Urban D. Mueller.
+</p>
+</div>
