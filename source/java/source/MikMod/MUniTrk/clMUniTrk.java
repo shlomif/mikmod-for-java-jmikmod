@@ -22,42 +22,42 @@ public class clMUniTrk extends Object
         all known effects:
     */
 
-    public final short UNI_NOTE=1;
-    public final short UNI_INSTRUMENT=2;
-    public final short UNI_PTEFFECT0=3;
-    public final short UNI_PTEFFECT1=4;
-    public final short UNI_PTEFFECT2=5;
-    public final short UNI_PTEFFECT3=6;
-    public final short UNI_PTEFFECT4=7;
-    public final short UNI_PTEFFECT5=8;
-    public final short UNI_PTEFFECT6=9;
-    public final short UNI_PTEFFECT7=10;
-    public final short UNI_PTEFFECT8=11;
-    public final short UNI_PTEFFECT9=12;
-    public final short UNI_PTEFFECTA=13;
-    public final short UNI_PTEFFECTB=14;
-    public final short UNI_PTEFFECTC=15;
-    public final short UNI_PTEFFECTD=16;
-    public final short UNI_PTEFFECTE=17;
-    public final short UNI_PTEFFECTF=18;
-    public final short UNI_S3MEFFECTA=19;
-    public final short UNI_S3MEFFECTD=20;
-    public final short UNI_S3MEFFECTE=21;
-    public final short UNI_S3MEFFECTF=22;
-    public final short UNI_S3MEFFECTI=23;
-    public final short UNI_S3MEFFECTQ=24;
-    public final short UNI_S3MEFFECTT=25;
-    public final short UNI_XMEFFECTA=26;
-    public final short UNI_XMEFFECTG=27;
-    public final short UNI_XMEFFECTH=28;
-    public final short UNI_XMEFFECTP=29;
+    public static final short UNI_NOTE=1;
+    public static final short UNI_INSTRUMENT=2;
+    public static final short UNI_PTEFFECT0=3;
+    public static final short UNI_PTEFFECT1=4;
+    public static final short UNI_PTEFFECT2=5;
+    public static final short UNI_PTEFFECT3=6;
+    public static final short UNI_PTEFFECT4=7;
+    public static final short UNI_PTEFFECT5=8;
+    public static final short UNI_PTEFFECT6=9;
+    public static final short UNI_PTEFFECT7=10;
+    public static final short UNI_PTEFFECT8=11;
+    public static final short UNI_PTEFFECT9=12;
+    public static final short UNI_PTEFFECTA=13;
+    public static final short UNI_PTEFFECTB=14;
+    public static final short UNI_PTEFFECTC=15;
+    public static final short UNI_PTEFFECTD=16;
+    public static final short UNI_PTEFFECTE=17;
+    public static final short UNI_PTEFFECTF=18;
+    public static final short UNI_S3MEFFECTA=19;
+    public static final short UNI_S3MEFFECTD=20;
+    public static final short UNI_S3MEFFECTE=21;
+    public static final short UNI_S3MEFFECTF=22;
+    public static final short UNI_S3MEFFECTI=23;
+    public static final short UNI_S3MEFFECTQ=24;
+    public static final short UNI_S3MEFFECTT=25;
+    public static final short UNI_XMEFFECTA=26;
+    public static final short UNI_XMEFFECTG=27;
+    public static final short UNI_XMEFFECTH=28;
+    public static final short UNI_XMEFFECTP=29;
 
     /*
             Unimod flags
     */
     
-    public final int UF_XMPERIODS =  1;               /* if set use XM periods/finetuning */
-    public final int UF_LINEAR    =  2;               /* if set use LINEAR periods */
+    public static final int UF_XMPERIODS =  1;               /* if set use XM periods/finetuning */
+    public static final int UF_LINEAR    =  2;               /* if set use LINEAR periods */
 
         
 
@@ -73,8 +73,8 @@ public class clMUniTrk extends Object
 	public int lastp;			/* holds index to the previous row (needed for compressing) */
 
 
-protected final int BUFPAGE = 128;            /* smallest unibuffer size */
-protected final int TRESHOLD = 16;
+protected static final int BUFPAGE = 128;            /* smallest unibuffer size */
+protected static final int TRESHOLD = 16;
 
 /* unibuffer is increased by BUFPAGE
   bytes when unipc reaches unimax-TRESHOLD */
