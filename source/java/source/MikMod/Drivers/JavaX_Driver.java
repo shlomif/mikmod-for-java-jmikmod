@@ -9,7 +9,11 @@ import javax.sound.sampled.*;
  * quite an ugly hack at the moment - sound buffer is alway initialized    *
  * with 44100HZ/16Bit/Stereo. But hey, it works for me ;)                  *
  ***************************************************************************/
-
+/***************************************************************************
+ * Updated by Shlomi Fish - 30 March 2005.                                 *
+ * Now it was generalized to handle other configurations besides           *
+ * 44100Hz/16Bit/Stereo.                                                   *
+ ***************************************************************************/
 public class JavaX_Driver extends clDRIVER {
 	public final int RAWBUFFERSIZE = 16384;
   SourceDataLine line;
@@ -36,7 +40,14 @@ public class JavaX_Driver extends clDRIVER {
 
 	public int Init() {
     // User defined values should be set in the following line
-    AudioFormat format = new AudioFormat(44100f, 16, 2, true, false);
+    AudioFormat format = 
+        new AudioFormat(
+            m_.MDriver.md_mixfreq, 
+            (m_.MDriver.is16Bits()?16:8), 
+            (m_.MDriver.isStereo()?2:1), 
+            m_.MDriver.is16Bits(), 
+            false
+            );
 
     DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
     if (!AudioSystem.isLineSupported(info)) {
@@ -125,5 +136,5 @@ public class JavaX_Driver extends clDRIVER {
 			repend,
 			flags);
 	}
-
 }
+
