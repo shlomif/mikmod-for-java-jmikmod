@@ -1,0 +1,9 @@
+#include '../template.wml'
+
+<subject "Download MikMod for Java" />
+<h2>Stable Version</h2>
+<div class="textblock">
+<p>
+<a href="jmikmod-0.2.0.zip">JMikMod 0.2.0</a>
+</p>
+</div>

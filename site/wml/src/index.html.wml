@@ -1,0 +1,16 @@
+#include '../template.wml'
+
+<subject "MikMod for Java" />
+
+<div class="textblock">
+<p>
+Welcome to the MikMod for Java homepage. MikMod for Java is a Java-based
+player for various kinds of MOD files (including MOD, S3M, XM and MTM).
+It is based on the original MikMod ANSI C codebase.
+</p>
+<p>
+MikMod for Java is open source, and is distributed under the public domain
+in source and binary forms.
+</p>
+</div>
+

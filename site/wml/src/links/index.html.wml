@@ -1,0 +1,19 @@
+#include '../template.wml'
+
+<subject "Links" />
+<h2>MOD Collections and Portals</h2>
+<div class="textblock">
+<p>
+<a href="http://www.modarchive.com/">The Mod Archive</a> - contains
+thousands of MODs sorted alphabetically, with descriptions, reviews and
+a search facility.
+</p>
+<p>
+<a href="http://wuarchive.wustl.edu/aminet/mods/">Aminet MOD
+Collection</a> - a large but not too organized collection of MOD files
+of various types.
+</p>
+<p>
+<a href="http://www.modplug.com/">ModPlug.Com</a> - a premiere MOD portal.
+</p>
+</div>
