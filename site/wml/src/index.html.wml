@@ -14,3 +14,15 @@ in source and binary forms.
 </p>
 </div>
 
+<h2>News</h2>
+
+<h3>31-March-2005</h3>
+<div class="textblock">
+<p>
+MikMod for Java version 0.4.0 was released. This release includes an 
+<a href="http://ant.apache.org/">Apache Ant</a> build file, a driver for 
+rendering WAV files, and a javax.sound driver for outputting sound at 
+run-time.
+</p>
+</div>
+

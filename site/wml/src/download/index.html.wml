@@ -1,7 +1,17 @@
 #include '../template.wml'
 
 <subject "Download MikMod for Java" />
-<h2>Stable Version</h2>
+<h2>Latest Stable Version</h2>
+<div class="textblock">
+<p>
+<a href="JMikMod-0.4.0-src.jar">JMikMod-0.4.0-src.jar</a> - Source Release.
+</p>
+<p>
+<a href="JMikMod-0.4.0.jar">JMikMod-0.4.0.jar</a> - Compiled Binaries. (.class
+files)
+</p>
+</div>
+<h2>Old Versions</h2>
 <div class="textblock">
 <p>
 <a href="jmikmod-0.2.0.zip">JMikMod 0.2.0</a>
