@@ -20,7 +20,8 @@ LOADERS = MikMod/Loaders/MOD_Loader.class \
 
 DRIVERS = MikMod/Drivers/Raw_Driver.class  \
         MikMod/Drivers/NS_Driver.class  \
-        MikMod/Drivers/Native_Driver.class
+        MikMod/Drivers/Native_Driver.class \
+		MikMod/Drivers/Wav_Driver.class
 
 OBJS =  MikMod/MMIO/MMIO.class \
         MikMod/clMainBase.class \

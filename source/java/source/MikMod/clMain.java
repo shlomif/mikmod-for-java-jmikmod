@@ -322,6 +322,8 @@ public int main(String nargv[])
     Native_Driver cl_drv_native = new Native_Driver(this);
     MDriver.MD_RegisterDriver(cl_drv_native);
     */
+    Wav_Driver cl_drv_wav = new Wav_Driver(this);
+    MDriver.MD_RegisterDriver(cl_drv_wav);
 
 
 
