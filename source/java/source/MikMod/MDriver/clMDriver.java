@@ -350,4 +350,14 @@ public clDRIVER GetActiveDriver()
     return drivers[num_drivers-md_device];
 }
 
+public boolean isStereo()
+{
+    return ((m_.MDriver.md_mode & m_.DMODE_STEREO) != 0);
+}
+
+public boolean is16Bits()
+{
+    return ((m_.MDriver.md_mode & m_.DMODE_16BITS) != 0);
+}
+
 }
