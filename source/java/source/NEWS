@@ -1,0 +1,5 @@
+0.4.0
+    - Got the source to compile with JDK 1.4.x
+    - Added an Apache Ant build.xml file.
+    - Added a WAV-creating driver.
+    - Added the JavaX driver from Tobias Braun.
