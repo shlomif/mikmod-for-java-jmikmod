@@ -3,3 +3,9 @@
 
 * Create a base class for all the drivers in which the VC_ functions call
 the Virtch ones.
+
+* Write a regression test suite - render several MOD files into .wav and .raw
+and check their lengthes and signatures.
+
+* Create an Ant file.
+
