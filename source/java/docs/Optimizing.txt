@@ -1,0 +1,109 @@
+Ideas on how to optimize the Java version of MikMod
+---------------------------------------------------
+
+
+The speed of JMikMod and its CPU consumption are very unsatisfactory,
+at least on the non-JIT compilation based Java runtime environments I
+tested it on. The easiest thing would be to say that Java is not
+intended for real-time applications, and that it isn't realistic to
+think one can efficiently run MikMod on it.
+
+Still, I believe that there are several ways in which the code I have
+now can be modified to make it faster. I deduced them from my
+general knowledge of programming, and not much from a specialized
+understanding of how Java programs are executed.
+
+Ideas number 4 & 5 were suggested by Urban D. Mueler. 
+
+1. Converting "bytes" and "shorts" to "ints"
+
+MikMod's roots as a DOS program are evident in its extensive use of
+8-bit and 16-bit integers. Since Java is a 32-bit environment, those
+data types are handled slower than ints, which are 32-bit integers.
+
+Even if the value those variables contain never exceeds the ranges of
+-127 to 128 or -32768 - 32767 then declaring them as "ints" will still
+make the calculations faster.
+
+This modification may require the addition of more range checks. Plus,
+there are times when they should not be modified. For example, the
+array of bytes that contains the sound data and is sent to the audio
+driver.
+
+I had to add some "(short)( expression )" or "(byte)( expression )"
+casts too, and this modification may make it possible to eliminate
+them. (which should be done, for the same reason)
+
+
+
+2. Making more methods and variables "static"
+
+A non-static method requires the interpreter to pass the object's
+reference as an invisible first parameter. A static method, which can
+be called without an object instance, probably does not pass the object
+reference. Thus, we can save some precious time by converting large
+hierarchies of methods and the member variables they use into static
+ones.
+
+Basically, one can make all the methods and member variables in the
+program (except perhaps of the various loaders and drivers) static and
+thus save a lot of time, because we will not have to pass the
+references to the calling object, or keep using "m_" to get a reference
+to a different module.
+
+This proposal however, will enable only one MOD playing routine to be
+active in a single process. Thus, it's not very OOPish, because it's
+possible that a program will wish to keep several player instances,
+either to play simultaenously (via multi-threading) or switch between
+one another.
+
+
+
+3. Reducing the number of functions in the audio-generation core.
+
+The loading process of the module in JMikMod is slow, but the main
+concern should be with optimizing the speed and CPU consumption of the
+program's core. I'm refering to the routines that take the UNIMOD data
+and generate an array of bytes or shorts that contain audio data, and
+which can be sent to the audio driver.
+
+Calling a function is always a relatively time-consuming process, and
+the more functions there are in the core, the more time the calling
+itself consumes. If we combine several functions into one, we can
+eliminate a large part of this overhead.
+
+This proposal will result in a deviation from the original MikMod code.
+
+
+
+4. Optimizing the code of MixMonoNormal and friends
+
+The clVirtch.Mix* functions is where most of the overhead takes place.
+One can try to optimize them by:
+
+A. Eliminating the use of the extra variable sample, and using dest_idx
+in a more optimized way.
+B. Loop unrolling: more than one mixing instruction inside a loop.
+
+
+5. Sample Prerendering
+
+We can prerender the samples with the appropriate mixing function and
+keep a
+(sample_index, lvolmul, increment) -> buffer_index
+hash to map them to their prerendered buffers. Then the mixing routine
+will look like that:
+dest[idx] = src1[idx] + src2[idx] + src3[idx] + src4[idx];
+
+
+
+
+
+
+
+
+
+
+
+
+

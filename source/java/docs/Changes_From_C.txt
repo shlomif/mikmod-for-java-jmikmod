@@ -1,0 +1,161 @@
+
+This document lists the changes I made to the ANSI C code to convert it
+to Java. I ported MikMod to Java in the following manner:
+
+I first converted the original ANSI C source code to a C++ class-based
+code. Then, I gradually replaced more and more C features or code
+styles with their Java equivalents.
+
+Afterwards, I renamed the files to  hava a '.java' extension and
+applied the appropriate changes so it will compile. Finally, during
+run-time there were various Error notices and bugs, that pointed to
+other required alterations, which I also applied to the code.
+
+Converting MikMod to Java was fairly easy in that manner, because
+MikMod was already quite well-designed and modulated.
+
+Here are the changes that are apparaerant by comparing between the
+original code and the Java code:
+
+
+
+
+1. Every module was encapsulated in its own class, the functions were
+turned to methods and the global variables converted to member
+variables. Some modules were implemented as a base class with two
+derived classes: one for the MikMod player and one for MikCvt:
+
+MikMod.clMainBase
+    |
+    |- MikMod.clMain
+    |
+    \- MikMod.clMikCvtMain
+
+MikMod.clMDriverBase
+    |
+    |- MikMod.MDriver.clMDriver
+    |
+    \- MikMod.clMikCvtMDriver  (inside clMikCvtMain.java)
+    
+
+MikMod.clDisplayBase       (intended for mikcvt)
+    |
+    \- MikMod.Display.clDisplay     (intended for mikmod)
+
+The basic architecture is that the main class (clMain or clMikCvtMain)
+contains pointers to the instances of the other module-objects, while
+every one of the latter have a pointer to the main class. In order to
+access a function or variable of another module one uses the
+"m_.[Module Name].[FuncName/VarName]" syntax (m_ points to the main
+class in all the objects).
+
+As an examples:
+
+m_.MDriver.SL_Load( my_buffer, start_from, len);
+
+m_.mmIO.myerr = "An error string";
+
+
+
+2. The drivers and loaders architecture is implemented by managing a
+list of references to classes that are derived from the generic classes
+MikMod.clDRIVER and MikMod.clLOADER.
+
+For every loader or driver, I create an instance of its class and then
+adds it to the array of references, which is handled by clMDriver or
+clMLoader. Then the management module/class can access each different
+loader or driver by its index in the array.
+
+For example, to check which loader can recognize a file, clMLoader uses
+the following code:
+
+for(t=num_loaders-1; t >= 0; t--){
+        m_.mmIO._mm_rewind(modfp);
+        //l=loaders[t];
+        if(loaders[t].Test()) break;
+}
+
+The drivers reside in the MikMod.Drivers namespace and the loaders in
+MikMod.Loaders.
+
+
+
+3. Whenever the typedefs SBYTE, SWORD and SLONG were used, they were
+replaced by "byte", "short" and "int" respectively. UBYTE, UWORD and
+ULONG as well as standard references to unsigned data types, were
+replaced by signed data types. I sometimes had to upgrade them to a
+greater byte-size (e.g. an 8-bit unsigned integer converted to a
+"short", which is a 16-bit signed integer).
+
+I also replaced integer variables and constants by Java's booleans
+where appropriate. Moreover, "NULL" and sometimes "0" was replaced by
+"null".
+
+Note: in Java "long" is a 64-bit integer, and only "int" is a 32-bit
+integer. Thus, if a variable was declared as long in the C code, I had
+to change it to an "int" declaration.
+
+
+
+4. I replaced traditional C file I/O and string handling with Java's.
+Calls to other libc routines (especially malloc, memcmp and
+friends) that may not be compatible with Java, were replaced by code
+that uses only the C/Java operators.
+
+Note: some of those conversion could be re-implemented with Java
+methods like System.arraycopy. I'd rather not because of byte-sex
+compatibility.
+
+Another note: as I found out, when allocating an array of strings in
+Java, one also has to instantize every member. For example where in ANSI C
+one would use:
+
+mystruct * array = malloc(sizeof(mystruct) * 10);
+
+In C++ it would read:
+
+mystruct * array = new mystruct [10];
+
+And in Java it should be:
+
+mystruct [] array = new mystruct [10];
+for(i=0;i<10;i++)
+    array[i] = new mystruct;
+
+
+
+5. Pointer arithmetics and pointer casting were eliminated. I sometimes
+needed to add extra parameters to functions that will denote the array offset
+of the beginning of the data.
+
+
+
+7. I made sure that all conditions in ifs, loops, etc. return a boolean
+expression and not a mere integer. Java does not accept such constructs
+as 'if (1)' or 'if (my_int)', so they had to be changed to 'if (true)'
+and 'if (my_int != 0)'.
+
+I sometimes had to add some extra parenthesis. For example:
+"if (md_mode & DMODE_16BITS)" was converted to
+"if ((m_MDriver.md_mode & m_.DMODE_16BITS) != 0)"
+
+
+
+8. The Java compiler does not automatically converts an arithmetic
+expression that evaluates to an int, into a short or a byte. Thus, some
+expressions were surrounded by parenthesis and preceded by "(short)" or
+"(byte)". Since Java constants are normally ints, it had to be done
+quite often.
+
+
+
+9. I've added a lot of "try { <main code ...> } catch (SomeException
+some_exc) <catch handler code ...> }" constructs around function code
+to catch the various exceptions that Java often throws.
+
+The catch handler usually only contains a "return" statement or a
+similiar instruction so the function will return an error-code. I
+relied on MikMod's error-handling and just didn't have the nerve to
+figure out what all those catch clauses should contain.
+
+
