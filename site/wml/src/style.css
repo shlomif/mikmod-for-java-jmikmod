@@ -54,6 +54,11 @@ div.footer {
     padding-left : 0.5em;
 }
 
+.main h3 {
+    background-color : #c02090;
+    padding-left : 0.5em;
+}
+
 .navbar h2 { color: black ; border : none ; font-size : large ; margin-left : 0.5em ; background-color : transparent }
 p.desc { margin-left : 3em }
 ul.navbarmain { padding-left : 1em ; margin-left : 1em ; font-size : 90%}
