@@ -27,11 +27,12 @@ body { background-color : lightblue }
     This is so IE/Mac and Mozilla 1.2/Mac would be happy.
 */
 div.footer {
+    clear : both;
     margin-right : 30px;
+    padding-top: 0.5em;
 }
 
 .bottom {
-    clear: both;
 }
 
 .textblock {
