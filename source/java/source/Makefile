@@ -18,9 +18,11 @@ LOADERS = MikMod/Loaders/MOD_Loader.class \
         MikMod/Loaders/XM_Loader.class \
         MikMod/Loaders/STM_Loader.class
 
-DRIVERS = MikMod/Drivers/Raw_Driver.class  \
+DRIVERS = \
+		MikMod/Drivers/JavaX_Driver.class  \
         MikMod/Drivers/NS_Driver.class  \
         MikMod/Drivers/Native_Driver.class \
+		MikMod/Drivers/Raw_Driver.class  \
 		MikMod/Drivers/Wav_Driver.class
 
 OBJS =  MikMod/MMIO/MMIO.class \
