@@ -1,0 +1,53 @@
+<project name="JMikMod" default="dist" basedir=".">
+    <description>
+        Build file for MikMod for Java - http://jmikmod.berlios.de/
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="source"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+  <property name="version" value="0.3.5"/>
+  <property name="src_dist" location="dist-source"/>
+  <property name="base" location="."/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+
+    <!-- Put everything in ${build} into the appropriate jar file -->
+    <jar jarfile="${dist}/lib/${ant.project.name}-${version}.jar" basedir="${build}"/>
+  </target>
+
+  <target name="src_dist" 
+        description="generate the source distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${src_dist}/"/>
+
+    <!-- Put everything in ${build} into the appropriate jar file -->
+    <jar jarfile="${src_dist}/${ant.project.name}-${version}-src.jar"
+         basedir="${base}"
+         includes="build.xml,docs/*.txt,source/Makefile,source/TODO,source/**/*.java"
+         />
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
