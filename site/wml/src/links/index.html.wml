@@ -1,6 +1,16 @@
 #include '../template.wml'
 
 <subject "Links" />
+
+<h2>MikMod-Related Information</h2>
+
+<div class="textblock">
+<p>
+<a href="http://mikmod.raphnet.net/">The MikMod Homepage</a> - the homepage
+for the (ANSI C-based) MikMod project. 
+</p>
+</div>
+
 <h2>MOD Collections and Portals</h2>
 <div class="textblock">
 <p>
@@ -17,3 +27,14 @@ of various types.
 <a href="http://www.modplug.com/">ModPlug.Com</a> - a premiere MOD portal.
 </p>
 </div>
+
+<h2>General MOD Information</h2>
+
+<div class="textblock">
+<p>
+<a href="http://www.castlex.com/modfaq/">The alt.binaries.sounds.mods 
+Frequently Asked Questions (FAQ) List</a> - a relatively old, but still 
+pertinent document about MOD files and related software.
+</p>
+</div>
+
