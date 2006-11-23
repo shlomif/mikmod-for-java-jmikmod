@@ -9,6 +9,11 @@
 <a href="http://mikmod.raphnet.net/">The MikMod Homepage</a> - the homepage
 for the (ANSI C-based) MikMod project. 
 </p>
+<p>
+<a href="http://www.softwareprodigy.com/tools.html">MikMod for 
+Java 1.1 Applets</a> - a Port of JMikMod to Java 1.1, with some other changes
+to make it suitable for using in Java 1.1-compatible applets.
+</p>
 </div>
 
 <h2>MOD Collections and Portals</h2>
