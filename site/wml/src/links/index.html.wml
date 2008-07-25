@@ -46,14 +46,38 @@ pertinent document about MOD files and related software.
 <h2>Other Players</h2>
 
 <div class="textblock">
+
+<ul>
+
+<li>
 <p>
 <a href="http://ana-mp.sourceforge.net/">ANA-MP</a> - a MOD-playing Library
 for Java that supports the .MOD, .XM, and .S3M formats. LGPL.
 </p>
+</li>
+
+<li>
+<p>
+<a href="http://freshmeat.net/projects/javamod/">JavaMod</a> - a standalone
+Java-based player that plays .MOD, .XM. .S3M and .mp3's. GPL.
+</p>
+</li>
+
+<li>
 <p>
 <a href="http://xmp.sourceforge.net/">Extended Module Player (XMP)</a> - an
 open source MOD player written in C, that supports a very large number 
 of MOD formats.
 </p>
+</li>
+
+<li>
+<p>
+<a href="http://directory.fsf.org/project/libmodplug/">libmodplug</a> - a
+C++ library similar to libmikmod that plays several types of MOD files.
+Reportedly of higher quality than MikMod. GPL.
+</p>
+</li>
+</ul>
 </div>
 
