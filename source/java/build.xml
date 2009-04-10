@@ -6,7 +6,7 @@
   <property name="src" location="source"/>
   <property name="build" location="build"/>
   <property name="dist" location="dist"/>
-  <property name="version" value="0.3.5"/>
+  <property name="version" value="0.4.0"/>
   <property name="src_dist" location="dist-source"/>
   <property name="base" location="."/>
 
