@@ -12,6 +12,13 @@ It is based on the original MikMod ANSI C codebase.
 MikMod for Java is open source, and is distributed under the public domain
 in source and binary forms.
 </p>
+
+<p>
+<b>Note!</b> If you want to play MOD files in the browser, then a better
+option is likely <a href="https://github.com/wothke/libxmp-4.3.0">the
+JavaScript/WebAudio port of libxmp</a>.
+</p>
+
 </div>
 
 <h2>News</h2>
@@ -19,9 +26,9 @@ in source and binary forms.
 <h3>31-March-2005</h3>
 <div class="textblock">
 <p>
-MikMod for Java version 0.4.0 was released. This release includes an 
-<a href="http://ant.apache.org/">Apache Ant</a> build file, a driver for 
-rendering WAV files, and a javax.sound driver for outputting sound at 
+MikMod for Java version 0.4.0 was released. This release includes an
+<a href="http://ant.apache.org/">Apache Ant</a> build file, a driver for
+rendering WAV files, and a javax.sound driver for outputting sound at
 run-time.
 </p>
 </div>
