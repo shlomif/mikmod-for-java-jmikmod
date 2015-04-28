@@ -6,7 +6,7 @@
 
 <div class="textblock">
 <p>
-<a href="http://mikmod.raphnet.net/">The MikMod Homepage</a> - the homepage
+<a href="http://mikmod.sourceforge.net/">The MikMod Homepage</a> - the homepage
 for the (ANSI C-based) MikMod project.
 </p>
 <p>
@@ -14,6 +14,48 @@ for the (ANSI C-based) MikMod project.
 Java 1.1 Applets</a> - a Port of JMikMod to Java 1.1, with some other changes
 to make it suitable for using in Java 1.1-compatible applets.
 </p>
+</div>
+
+<h2>Other Players</h2>
+
+<div class="textblock">
+
+<ul>
+
+<li>
+<p>
+<a href="http://xmp.sourceforge.net/">Extended Module Player (XMP)
+and libxmp</a> - an
+open source (LGPLed) MOD playing library written in C, that supports a very
+large number of MOD formats. Has a
+<a href="https://github.com/wothke/libxmp-4.3.0">JavaScript port</a> (via
+Emscripten).
+</p>
+</li>
+
+<li>
+<p>
+<a href="http://modplug-xmms.sourceforge.net/">libmodplug</a> - a
+C++ library similar to libmikmod that plays several types of MOD files.
+Reportedly of higher quality than MikMod. Public Domain.
+</p>
+</li>
+
+<li>
+<p>
+<a href="http://ana-mp.sourceforge.net/">ANA-MP</a> - a MOD-playing Library
+for Java that supports the .MOD, .XM, and .S3M formats. LGPL.
+</p>
+</li>
+
+<li>
+<p>
+<a href="http://freshmeat.net/projects/javamod/">JavaMod</a> - a standalone
+Java-based player that plays .MOD, .XM. .S3M and .mp3's. GPL.
+</p>
+</li>
+
+</ul>
 </div>
 
 <h2>MOD Collections and Portals</h2>
@@ -42,42 +84,3 @@ Frequently Asked Questions (FAQ) List</a> - a relatively old, but still
 pertinent document about MOD files and related software.
 </p>
 </div>
-
-<h2>Other Players</h2>
-
-<div class="textblock">
-
-<ul>
-
-<li>
-<p>
-<a href="http://ana-mp.sourceforge.net/">ANA-MP</a> - a MOD-playing Library
-for Java that supports the .MOD, .XM, and .S3M formats. LGPL.
-</p>
-</li>
-
-<li>
-<p>
-<a href="http://freshmeat.net/projects/javamod/">JavaMod</a> - a standalone
-Java-based player that plays .MOD, .XM. .S3M and .mp3's. GPL.
-</p>
-</li>
-
-<li>
-<p>
-<a href="http://xmp.sourceforge.net/">Extended Module Player (XMP)</a> - an
-open source MOD player written in C, that supports a very large number
-of MOD formats.
-</p>
-</li>
-
-<li>
-<p>
-<a href="http://directory.fsf.org/project/libmodplug/">libmodplug</a> - a
-C++ library similar to libmikmod that plays several types of MOD files.
-Reportedly of higher quality than MikMod. GPL.
-</p>
-</li>
-</ul>
-</div>
-
