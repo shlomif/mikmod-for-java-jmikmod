@@ -53,7 +53,10 @@ $(PODS_DESTS_HTMLS) :: $(TARGET)/%.html : src/%.pod
 # $(PACKAGES_DESTS) :: $(PACKAGES_DIR)/% : ./temp/lk-module-compiler-final/%
 # 	cp -f $< $@
 
-upload: upload_berlios
+upload: upload_shlomif
+
+upload_shlomif: all
+	(cd dest && $(RSYNC) -r * hostgator:domains/jmikmod/public_html/)
 
 upload_berlios: all
 	(cd dest && $(RSYNC) -r * shlomif@shell.berlios.de:/home/groups/jmikmod/htdocs/)
