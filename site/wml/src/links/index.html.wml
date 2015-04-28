@@ -7,10 +7,10 @@
 <div class="textblock">
 <p>
 <a href="http://mikmod.raphnet.net/">The MikMod Homepage</a> - the homepage
-for the (ANSI C-based) MikMod project. 
+for the (ANSI C-based) MikMod project.
 </p>
 <p>
-<a href="http://www.softwareprodigy.com/tools.html">MikMod for 
+<a href="http://www.softwareprodigy.com/tools.html">MikMod for
 Java 1.1 Applets</a> - a Port of JMikMod to Java 1.1, with some other changes
 to make it suitable for using in Java 1.1-compatible applets.
 </p>
@@ -37,8 +37,8 @@ of various types.
 
 <div class="textblock">
 <p>
-<a href="http://www.castlex.com/modfaq/">The alt.binaries.sounds.mods 
-Frequently Asked Questions (FAQ) List</a> - a relatively old, but still 
+<a href="http://www.castlex.com/modfaq/">The alt.binaries.sounds.mods
+Frequently Asked Questions (FAQ) List</a> - a relatively old, but still
 pertinent document about MOD files and related software.
 </p>
 </div>
@@ -66,7 +66,7 @@ Java-based player that plays .MOD, .XM. .S3M and .mp3's. GPL.
 <li>
 <p>
 <a href="http://xmp.sourceforge.net/">Extended Module Player (XMP)</a> - an
-open source MOD player written in C, that supports a very large number 
+open source MOD player written in C, that supports a very large number
 of MOD formats.
 </p>
 </li>
