@@ -11,7 +11,7 @@
 <preserve store />
 <preserve title />
 <set-var %attributes />
-<ifeq "<get-var store />" "ukamazon" 
+<ifeq "<get-var store />" "ukamazon"
     "<set-var ucstore="Amazon UK" />"
     "<set-var ucstore="<:{print ucfirst("<get-var store />")}:>" />"
     />
@@ -36,9 +36,9 @@
 <b>Publisher:</b> <get-var ext:publisher /><br />
 
 <if "<get-var perlbooksid />" "<get-var perlbookslink />" "" />
-<b>Buy From:</b> 
-<book:store isbn="<get-var isbn />" store="amazon" title="Amazon" /> - 
-<book:store isbn="<get-var isbn />" store="powells" title="Powells" /> - 
+<b>Buy From:</b>
+<book:store isbn="<get-var isbn />" store="amazon" title="Amazon" /> -
+<book:store isbn="<get-var isbn />" store="powells" title="Powells" /> -
 <book:store isbn="<get-var isbn />" store="amazonuk" title="Amazon UK" />
 <br />
 </div>
