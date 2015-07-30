@@ -13,7 +13,7 @@ now can be modified to make it faster. I deduced them from my
 general knowledge of programming, and not much from a specialized
 understanding of how Java programs are executed.
 
-Ideas number 4 & 5 were suggested by Urban D. Mueler. 
+Ideas number 4 & 5 were suggested by Urban D. Mueler.
 
 1. Converting "bytes" and "shorts" to "ints"
 

@@ -5,26 +5,26 @@ DRV_VOX.C
 
 Description:
 Mikmod driver for output on linux and FreeBSD Open Sound System (OSS)
-(/dev/dsp) 
+(/dev/dsp)
 
 Portability:  VoxWare/SS/OSS land. Linux, FreeBSD (NetBSD & SCO?)
 
 New fragment configuration code done by Rao:
 ============================================
 
-You can use the environment variables 'MM_FRAGSIZE' and 'MM_NUMFRAGS' to 
-override the default size & number of audio buffer fragments. If you 
+You can use the environment variables 'MM_FRAGSIZE' and 'MM_NUMFRAGS' to
+override the default size & number of audio buffer fragments. If you
 experience crackles & pops, try experimenting with these values.
 
-Read experimental.txt within the VoxWare package for information on these 
+Read experimental.txt within the VoxWare package for information on these
 options. They are _VERY_ important with relation to sound popping and smooth
-playback.                                                        
+playback.
 
-In general, the slower your system, the higher these values need to be. 
+In general, the slower your system, the higher these values need to be.
 
 MM_NUMFRAGS is within the range 2 to 255 (decimal)
 
-MM_FRAGSIZE is is within the range 7 to 17 (dec). The requested fragment size 
+MM_FRAGSIZE is is within the range 7 to 17 (dec). The requested fragment size
 will be 2^MM_FRAGSIZE
 
 */
@@ -40,7 +40,7 @@ public class Native_Driver extends clDRIVER
 static {
     System.loadLibrary("jmikmod_drv");
 }
-    
+
     protected int sndfd;
     protected int fragmentsize;
     protected byte audiobuffer[];
@@ -53,7 +53,7 @@ native int sysOpenSound(int iFreq, int iBitsNum, int iStereo, int iBlockSize, St
 native int sysCloseSound(int lHandle);
 native int sysWriteBuffer(int lHandle, byte bBuffer[], int iLen);
 
-    
+
 public Native_Driver(clMain theMain)
 {
     super(theMain);
@@ -93,12 +93,12 @@ public int Init()
         fragsize = DEFAULT_FRAGSIZE;
         //numfrags=(env=getenv("MM_NUMFRAGS")) ? atoi(env) : DEFAULT_NUMFRAGS;
         numfrags = DEFAULT_NUMFRAGS;
-		
+
 	if(fragsize<7 || fragsize>17)  fragsize=DEFAULT_FRAGSIZE;
 	if(numfrags<2 || numfrags>255) numfrags=DEFAULT_NUMFRAGS;
 
 	fragmentsize=(numfrags<<16) | fragsize;
-	
+
 /*#ifndef __FreeBSD__
 	if(ioctl(sndfd, SNDCTL_DSP_SETFRAGMENT, &fragmentsize)<0){
 		*m_.mmIO.myerr = "Buffer fragment failed";
@@ -112,7 +112,7 @@ public int Init()
 	play_rate=m_.MDriver.md_mixfreq;
 
         sndfd = sysOpenSound(play_rate, play_precision, play_stereo, fragmentsize, m_.mmIO.myerr);
-        
+
         if (sndfd == -1)
         {
             return 0;
@@ -127,13 +127,13 @@ public int Init()
 	}
 
         audiobuffer = new byte[fragmentsize];
-	
+
 	if(audiobuffer==null){
 		m_.Virtch.VC_Exit();
 		sysCloseSound(sndfd);
 		return 0;
 	}
-	
+
 	return 1;
 }
 

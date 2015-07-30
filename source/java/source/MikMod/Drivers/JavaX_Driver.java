@@ -40,12 +40,12 @@ public class JavaX_Driver extends clDRIVER {
 
 	public int Init() {
     // User defined values should be set in the following line
-    AudioFormat format = 
+    AudioFormat format =
         new AudioFormat(
-            m_.MDriver.md_mixfreq, 
-            (m_.MDriver.is16Bits()?16:8), 
-            (m_.MDriver.isStereo()?2:1), 
-            m_.MDriver.is16Bits(), 
+            m_.MDriver.md_mixfreq,
+            (m_.MDriver.is16Bits()?16:8),
+            (m_.MDriver.isStereo()?2:1),
+            m_.MDriver.is16Bits(),
             false
             );
 

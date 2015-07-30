@@ -6,7 +6,7 @@ MIKMODUX.C
 Description:
 Modplaying example of mikmod - bare unix? version.
 
-Original by MikMak <mikmak@via.nl>, 
+Original by MikMak <mikmak@via.nl>,
 then Chris Conn <cconn@tohs.abacom.com>,
 then Steve McIntyre <stevem@chiark.greenend.org.uk>
 
@@ -37,13 +37,13 @@ import MikMod.Display.*;
 
 public class clMain extends clMainBase {
 
-        
+
         public final int DMODE_STEREO =  1;
         public final int DMODE_16BITS =  2;
         public final int DMODE_INTERP =  4;
 
 
-    
+
 
 	public String d_text[];
 	public String helptext;
@@ -62,13 +62,13 @@ public class clMain extends clMainBase {
         public clDisplay Display;
 
 
-    
+
 public clMain()
 {
     {
         int i;
         d_text = new String[4];
-    
+
         for(i=0;i<4;i++)
             d_text[i] = new String();
 
@@ -76,7 +76,7 @@ public clMain()
 
     }
 
-            
+
 	d_text[0] = "            ";	/*standard, not deleted*/
 	d_text[1] = " <del>      ";	/*marked for deletion*/
 	d_text[2] = " <deleted>  ";	/*deleted, gone!*/
@@ -170,7 +170,7 @@ int java_getopt(int argc, String argv[], String optstring)
 
     if (optind < 1)
         optind = 1;
-    
+
     if (optind == argc)
         return mmIO.EOF;
     if ((in_opt_charpos == 0) && (argv[optind].charAt(0) == '-'))
@@ -231,7 +231,7 @@ int java_getopt(int argc, String argv[], String optstring)
 /*
 
 public int clMain.main()
- 
+
 This function corresponds with the C program main() function. It also accepts
 an array of string a-la-style of C's "char * argv[]" parameter: argv[0] is
 an arbitary program name, as in C.
@@ -242,7 +242,7 @@ public int main(String nargv[])
 
         int nargc = nargv.length;
 
-    
+
 	UNIMOD mf=null;
 	int cmderr=0;                   /* error in commandline flag */
 	int morehelp=0;                 /* set if user wants more help */
@@ -259,7 +259,7 @@ public int main(String nargv[])
 
 
 	MUniTrk = new clMUniTrk(this);
-	
+
 	MPlayer = new clMPlayer(this);
 
 	Virtch = new clVirtch(this);
@@ -489,7 +489,7 @@ public int main(String nargv[])
         cur_mod.file_output = new String();
         cur_mod.name_type = new String();
         cur_mod.status = new String();
-                
+
 	/*  initialize curses interface */
         Display.init_display();
 
@@ -543,7 +543,7 @@ public int main(String nargv[])
 		Display.update_name_display();
 		Display.display_name();
 
-		
+
 		/*	set the number of voices to use.. you
 			could add extra channels here (e.g. md_numchn=mf.numchn+4; )
 			to use for your own soundeffects:

@@ -6,7 +6,7 @@ LOAD_669.C
 Description:
 
 669 module Loader - Version 0.21
-Updated to current portability levels by Steve McIntyre 
+Updated to current portability levels by Steve McIntyre
 		<stevem@chiark.greenend.org.uk>
 December 1996
 
@@ -42,7 +42,7 @@ class S69HEADER{
             orders = new short[0x80];
             tempos = new short[0x80];
             breaks = new short[0x80];
-            
+
         }
 }
 
@@ -241,7 +241,7 @@ public boolean Load()
 	}
 
         //if(feof(m_.MLoader.modfp)){
-        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {        
+        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {
                 m_.mmIO.myerr="Error loading header";
                 return false;
         }
@@ -252,7 +252,7 @@ public boolean Load()
 	m_.MLoader.of.inittempo=125;
         m_.MLoader.of.songname=m_.MLoader.DupStr(mh.message,108);
 
-        if (((char)id[0] == 'J') && ((char)id[1] == 'N'))        
+        if (((char)id[0] == 'J') && ((char)id[1] == 'N'))
         //if(memcmp(id,"JN",2))
 		m_.MLoader.of.modtype=new String(S69_Version[1]);
 	else
@@ -265,7 +265,7 @@ public boolean Load()
         //memcpy(m_.MLoader.of.positions,mh.orders,0x80);
         for(t=0;t<0x80;t++)
             m_.MLoader.of.positions[t] = mh.orders[t];
-            
+
 
 	for(t=0;t<128;t++){
 		if(m_.MLoader.of.positions[t]==0xff) break;
@@ -286,7 +286,7 @@ public boolean Load()
 
 	        m_.mmIO._mm_read_str(s.filename,13,m_.MLoader.modfp);
 
-                m_.MLoader.of.instruments[inst_num].samples[0].seekpos = 0;                
+                m_.MLoader.of.instruments[inst_num].samples[0].seekpos = 0;
                 m_.MLoader.of.instruments[inst_num].samples[0].c2spd = 8363;
                 m_.MLoader.of.instruments[inst_num].samples[0].length = m_.mmIO._mm_read_I_ULONG(m_.MLoader.modfp);
 		s.loopbeg=m_.mmIO._mm_read_I_ULONG(m_.MLoader.modfp);
@@ -305,7 +305,7 @@ public boolean Load()
 	}
 
         //if(feof(m_.MLoader.modfp)){
-        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {        
+        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {
                 m_.mmIO.myerr="Error loading samples";
                 return false;
         }

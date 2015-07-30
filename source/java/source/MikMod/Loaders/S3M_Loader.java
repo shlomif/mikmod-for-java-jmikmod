@@ -98,7 +98,7 @@ class S3MSAMPLE{
 public class S3M_Loader extends clLOADER
 {
         public final String S3M_Version="Screamtracker 3.xx";
-    
+
 	public S3MNOTE [] s3mbuf;        /* pointer to a complete S3M pattern */
 	public int [] paraptr;         /* parapointer array (see S3M docs) */
 
@@ -109,7 +109,7 @@ public class S3M_Loader extends clLOADER
         public S3M_Loader(clMainBase theMain)
         {
                 super(theMain);
-            
+
             	mh = null;
                 type = new String("S3M");
                 version = new String("Portable S3M loader v0.2");
@@ -121,7 +121,7 @@ public class S3M_Loader extends clLOADER
 public boolean Init()
 {
     int i;
-    
+
 	s3mbuf=null;
 	paraptr=null;
 
@@ -158,7 +158,7 @@ public boolean Init()
 
 public boolean Test()
 {
-	try {    
+	try {
 	byte id[] = new byte[4];
 	m_.mmIO._mm_fseek(m_.MLoader.modfp,0x2c,m_.mmIO.SEEK_SET);
         //if(!fread(id,4,1,m_.MLoader.modfp)) return 0;
@@ -173,7 +173,7 @@ public boolean Test()
 	{
 		return false;
 	}
-        
+
 }
 
 public void Cleanup()
@@ -189,7 +189,7 @@ public void Cleanup()
 public boolean S3M_ReadPattern()
 {
         try {
-        
+
         int row=0,flag,ch;
 	//S3MNOTE *n;
 	//S3MNOTE dummy;
@@ -206,7 +206,7 @@ public boolean S3M_ReadPattern()
                     = s3mbuf[i].inf = 255;
             }
         }
-	
+
 
 	while(row<64){
 
@@ -230,19 +230,19 @@ public boolean S3M_ReadPattern()
                                     //n.ins=fgetc(m_.MLoader.modfp);
                                     s3mbuf[(64*remap[ch])+row].ins = m_.mmIO._mm_read_UBYTE(m_.MLoader.modfp);
                                 }
-        
+
                                 if((flag&64) != 0){
                                     //n.vol=fgetc(m_.MLoader.modfp);
                                     s3mbuf[(64*remap[ch])+row].vol = m_.mmIO._mm_read_UBYTE(m_.MLoader.modfp);
                                 }
-        
+
                                 if((flag&128) != 0){
                                     //n.cmd=fgetc(m_.MLoader.modfp);
                                     //n.inf=fgetc(m_.MLoader.modfp);
                                     s3mbuf[(64*remap[ch])+row].cmd = m_.mmIO._mm_read_UBYTE(m_.MLoader.modfp);
                                     s3mbuf[(64*remap[ch])+row].inf = m_.mmIO._mm_read_UBYTE(m_.MLoader.modfp);
                                 }
-                            
+
 			}
 			else{
                                 //n=&dummy;
@@ -479,7 +479,7 @@ public boolean Load()
         m_.mmIO._mm_read_UBYTES2(mh.channels,32,m_.MLoader.modfp);
 
         //if(feof(m_.MLoader.modfp)){
-        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {        
+        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {
 		m_.mmIO.myerr="Error loading header";
 		return false;
 	}
@@ -582,7 +582,7 @@ public boolean Load()
 	/* now is a good time to check if the header was too short :) */
 
         //if(feof(m_.MLoader.modfp)){
-        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {        
+        if (m_.MLoader.modfp.getFilePointer() >= m_.MLoader.modfp.length()) {
 		m_.mmIO.myerr="Error loading header";
 		return false;
 	}
@@ -685,5 +685,5 @@ public boolean Load()
 }
 
 
-        
+
 }

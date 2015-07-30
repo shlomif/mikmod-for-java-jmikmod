@@ -43,7 +43,7 @@ public MMIO(clMainBase theMain)
 }
 
 
-public int _mm_fseek(RandomAccessFile stream, int offset, int whence) 
+public int _mm_fseek(RandomAccessFile stream, int offset, int whence)
 {
 	try {
         if (whence == SEEK_SET)
@@ -63,12 +63,12 @@ public int _mm_fseek(RandomAccessFile stream, int offset, int whence)
 				 whence);*/
 }
 
-public int _mm_rewind(RandomAccessFile  x)	 
+public int _mm_rewind(RandomAccessFile  x)
 {
     return _mm_fseek(x,0,SEEK_SET);
 }
 
-public int _mm_ftell(RandomAccessFile stream)	 
+public int _mm_ftell(RandomAccessFile stream)
 {
 	try {
 		//return ftell(stream)-_mm_iobase;
@@ -85,7 +85,7 @@ public void _mm_setiobase(int iobase)
 	_mm_iobase=iobase;
 }
 
-public void _mm_write_SBYTE(byte data,RandomAccessFile fp)	 
+public void _mm_write_SBYTE(byte data,RandomAccessFile fp)
 {
 	try {
         //fputc(data,fp);
@@ -98,7 +98,7 @@ public void _mm_write_SBYTE(byte data,RandomAccessFile fp)
 	}
 }
 
-public void _mm_write_UBYTE(short data,RandomAccessFile fp)	 
+public void _mm_write_UBYTE(short data,RandomAccessFile fp)
 {
 	try {
         //fputc(data,fp);
@@ -112,53 +112,53 @@ public void _mm_write_UBYTE(short data,RandomAccessFile fp)
 }
 
 public void _mm_write_M_UWORD(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_UBYTE((short)((data>>8)&0xff),fp);
 	_mm_write_UBYTE((short)(data&0xff),fp);
 }
 
 public void _mm_write_I_UWORD(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_UBYTE((short)(data&0xff),fp);
 	_mm_write_UBYTE((short)((data>>8)&0xff),fp);
 }
 
 public void _mm_write_M_SWORD(short data,RandomAccessFile fp)
-	 
+
 {
         _mm_write_M_UWORD((data<0)?(((int)data)+0x10000):data,fp);
 }
 
 public void _mm_write_I_SWORD(short data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_I_UWORD((data<0)?(((int)data)+0x10000):data,fp);
 }
 
 public void _mm_write_M_ULONG(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_M_UWORD((data>>16)&0xffff,fp);
 	_mm_write_M_UWORD(data&0xffff,fp);
 }
 
 public void _mm_write_I_ULONG(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_I_UWORD(data&0xffff,fp);
 	_mm_write_I_UWORD((data>>16)&0xffff,fp);
 }
 
 public void _mm_write_M_SLONG(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_M_ULONG(data,fp);
 }
 
 public void _mm_write_I_SLONG(int data,RandomAccessFile fp)
-	 
+
 {
 	_mm_write_I_ULONG(data,fp);
 }
@@ -193,7 +193,7 @@ public byte _mm_read_SBYTE(RandomAccessFile fp)
 }
 
 public short _mm_read_UBYTE(RandomAccessFile fp)
-	 
+
 {
 	try
 	{
@@ -207,7 +207,7 @@ public short _mm_read_UBYTE(RandomAccessFile fp)
 }
 
 public int _mm_read_M_UWORD(RandomAccessFile fp)
-	 
+
 {
 	int result=((int)_mm_read_UBYTE(fp))<<8;
 	result|=_mm_read_UBYTE(fp);
@@ -215,7 +215,7 @@ public int _mm_read_M_UWORD(RandomAccessFile fp)
 }
 
 public int _mm_read_I_UWORD(RandomAccessFile fp)
-	 
+
 {
 	int result=_mm_read_UBYTE(fp);
 	result|=((int)_mm_read_UBYTE(fp))<<8;
@@ -223,7 +223,7 @@ public int _mm_read_I_UWORD(RandomAccessFile fp)
 }
 
 public short _mm_read_M_SWORD(RandomAccessFile fp)
-	 
+
 {
 	short result=(short)(_mm_read_UBYTE(fp)<<8);
     result|=_mm_read_UBYTE(fp);
@@ -232,7 +232,7 @@ public short _mm_read_M_SWORD(RandomAccessFile fp)
 }
 
 public short _mm_read_I_SWORD(RandomAccessFile fp)
-	 
+
 {
         short result = _mm_read_UBYTE(fp);
         result |= (short)(_mm_read_UBYTE(fp)<<8);
@@ -241,7 +241,7 @@ public short _mm_read_I_SWORD(RandomAccessFile fp)
 }
 
 public int _mm_read_M_ULONG(RandomAccessFile fp)
-	 
+
 {
 	int result=((int)_mm_read_M_UWORD(fp))<<16;
 	result|=_mm_read_M_UWORD(fp);
@@ -249,7 +249,7 @@ public int _mm_read_M_ULONG(RandomAccessFile fp)
 }
 
 public int _mm_read_I_ULONG(RandomAccessFile fp)
-	 
+
 {
 	int result=_mm_read_I_UWORD(fp);
 	result|=((int)_mm_read_I_UWORD(fp))<<16;
@@ -257,13 +257,13 @@ public int _mm_read_I_ULONG(RandomAccessFile fp)
 }
 
 public int _mm_read_M_SLONG(RandomAccessFile fp)
-	 
+
 {
 	return((int)_mm_read_M_ULONG(fp));
 }
 
 public int _mm_read_I_SLONG(RandomAccessFile fp)
-	 
+
 {
 	return((int)_mm_read_I_ULONG(fp));
 }
@@ -284,7 +284,7 @@ public boolean isEOF(RandomAccessFile fp)
 }
 
 
-public boolean _mm_read_str(byte buffer[],int number,RandomAccessFile fp) 	 
+public boolean _mm_read_str(byte buffer[],int number,RandomAccessFile fp)
 {
 	try {
         //fread(buffer,1,number,fp);

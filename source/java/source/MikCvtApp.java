@@ -80,7 +80,7 @@ public class MikCvtApp extends Applet implements Runnable
 
 	public void destroy()
         {
-            
+
 	}
 
         // This function is only used for applets, so it's not implemented
@@ -96,7 +96,7 @@ public class MikCvtApp extends Applet implements Runnable
 			m_MikCvtApp.start();
 		}
 	}
-	
+
 	public void stop()
 	{
 		if (m_MikCvtApp != null)
@@ -110,7 +110,7 @@ public class MikCvtApp extends Applet implements Runnable
 	public void run()
 	{
             clMikCvtMain mikCvt = new clMikCvtMain();
-            
+
             mikCvt.main(my_argv);
 
             stop();

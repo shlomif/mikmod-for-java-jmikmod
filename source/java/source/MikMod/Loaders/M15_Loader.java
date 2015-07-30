@@ -271,7 +271,7 @@ public boolean M15_LoadPatterns()
         patbuf = new M15_MODNOTE[64*m_.MLoader.of.numchn];
         for(t=0;t<64*m_.MLoader.of.numchn;t++)
             patbuf[t] = new M15_MODNOTE();
-        
+
         for(t=0;t<64*m_.MLoader.of.numchn;t++)
         {
             patbuf[t].a = patbuf[t].b = patbuf[t].c = patbuf[t].d = 0;
@@ -329,7 +329,7 @@ public boolean Load()
             m_.MLoader.of.positions[t] = mh.positions[t];
         }
 
-        
+
 	/* Count the of patterns */
 
 	m_.MLoader.of.numpat=0;

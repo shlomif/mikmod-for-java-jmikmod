@@ -26,7 +26,7 @@ public class clMPlayer
         /*
                 Envelope flags:
         */
-        
+
         public static final int EF_ON       =    1;
         public static final int EF_SUSTAIN  =    2;
         public static final int EF_LOOP     =    4;
@@ -84,7 +84,7 @@ public class clMPlayer
 
 	public float old_bpm;
 
-    
+
 //extern float speed_constant;
 //extern int m_.quiet;
         //extern curmod m_.cur_mod;
@@ -241,9 +241,9 @@ public clMPlayer(clMain theMain)
         logtab = toshortarray(lti);
     }*/
 
-    
+
         m_ = theMain;
-    
+
 	mp_extspd = true;
 	mp_panning = true;
 	mp_loop = false;
@@ -258,21 +258,21 @@ public clMPlayer(clMain theMain)
             for(i=0;i<32;i++)
                 mp_audio[i] = new AUDTMP();
         }
-                    
-	
+
+
         //memset(mp_audio, 0, sizeof(mp_audio));
         {
             int i;
             for(i=0;i<32;i++)
             {
-                mp_audio[i].fadevol = 
+                mp_audio[i].fadevol =
                     mp_audio[i].start =
-                    
-                    mp_audio[i].period = 
-                    
+
+                    mp_audio[i].period =
+
                     mp_audio[i].c2spd = mp_audio[i].tmpperiod =
                     mp_audio[i].wantedperiod = mp_audio[i].slidespeed = mp_audio[i].portspeed =
-                    
+
                     mp_audio[i].soffset = 0;
 
                 mp_audio[i].volume =
@@ -282,7 +282,7 @@ public clMPlayer(clMain theMain)
                     mp_audio[i].vibpos =
                     mp_audio[i].trmpos =
                     ((byte)0);
-                
+
                 mp_audio[i].sample = mp_audio[i].handle =
                     mp_audio[i].panning = mp_audio[i].pansspd =
                     mp_audio[i].note =
@@ -293,7 +293,7 @@ public clMPlayer(clMain theMain)
                     mp_audio[i].vibspd = mp_audio[i].vibdepth =
                     mp_audio[i].trmspd = mp_audio[i].trmdepth =
                     ((short)0);
-                
+
                 mp_audio[i].keyon = mp_audio[i].kick = false;
 
                 mp_audio[i].i = null;
@@ -304,7 +304,7 @@ public clMPlayer(clMain theMain)
                     mp_audio[i].venv.beg = mp_audio[i].venv.end = mp_audio[i].venv.p =
                     mp_audio[i].venv.a = mp_audio[i].venv.b;
                 mp_audio[i].venv.env = null;
-                
+
                 mp_audio[i].penv.flg = mp_audio[i].penv.pts = mp_audio[i].penv.sus =
                     mp_audio[i].penv.beg = mp_audio[i].penv.end = mp_audio[i].penv.p =
                     mp_audio[i].penv.a = mp_audio[i].penv.b;
@@ -593,7 +593,7 @@ public void DoTremolo()
 
 public void DoVolSlide(short dat)
 {
-        dat &= 0xFF;    
+        dat &= 0xFF;
 
         if(vbtick == 0) return;             /* do not update when vbtick==0 */
 
@@ -643,7 +643,7 @@ public void DoXMVolSlide(short inf)
 	short lo,hi;
 
         inf &= 0xFF;
-        
+
 	if(inf!=0){
 		a.s3mvolslide=inf;
 	}
@@ -670,7 +670,7 @@ public void DoXMGlobalSlide(short inf)
         short lo,hi;
 
         inf &= 0xFF;
-        
+
         if(inf != 0){
                 globalslide=inf;
         }
@@ -698,7 +698,7 @@ public void DoXMPanSlide(short inf)
 	short pan;
 
         inf &= 0xFF;
-        
+
 	if(inf!=0) a.pansspd=inf;
 	else inf=a.pansspd;
 
@@ -729,7 +729,7 @@ public void DoS3MSlideDn(short inf)
 	short hi,lo;
 
         inf &= 0xFF;
-        
+
 	if(inf!=0) a.slidespeed=inf;
 	else inf=(short)(a.slidespeed);
 
@@ -754,7 +754,7 @@ public void DoS3MSlideUp(short inf)
 	short hi,lo;
 
         inf &= 0xFF;
-        
+
 	if(inf!=0) a.slidespeed=inf;
 	else inf=(short)(a.slidespeed);
 
@@ -779,7 +779,7 @@ public void DoS3MTremor(short inf)
         short on,off;
 
         inf &= 0xFF;
-        
+
         if(inf!=0) a.s3mtronof=inf;
         else inf=a.s3mtronof;
 
@@ -800,7 +800,7 @@ public void DoS3MRetrig(short inf)
 	short hi,lo;
 
         inf &= 0xFF;
-        
+
 	hi=(short)(inf>>4);
 	lo=(short)(inf&0xf);
 
@@ -872,7 +872,7 @@ public void DoS3MRetrig(short inf)
 public void DoS3MSpeed(short speed)
 {
         speed &= 0xFF;
-    
+
 	if((vbtick != 0) || (patdly2 != 0)) return;
 
 	if(speed!=0){                      /* <- v0.44 bugfix */
@@ -939,7 +939,7 @@ public void DoPTEffect0(short dat)
 	short note;
 
         dat &= 0xFF;
-        
+
 	note=a.note;
 
 	if(dat!=0){
@@ -1009,7 +1009,7 @@ public void PlayNote()
 
 				//s=&i.samples[i.samplenumber[a.note]];
                                 a.s=pf.instruments[inst].samples[pf.instruments[inst].samplenumber[a.note]];
-                                
+
 
 				/* channel or instrument determined panning ? */
 
@@ -1147,7 +1147,7 @@ public void PlayEffects()
 				if(dat<mp_sngpos) break; /* avoid eternal looping */
 				patbrk=0;
 				mp_sngpos=(short)(dat-1);
-				posjmp=3; 
+				posjmp=3;
 				break;
 
 			case MikMod.MUniTrk.clMUniTrk.UNI_PTEFFECTC:
@@ -1281,7 +1281,7 @@ public static void StartEnvelope(ENVPR t,short flg,short pts,short sus,short beg
     beg &= 0xFF;
     end &= 0xFF;
 
-    
+
 	t.flg=flg;
 	t.pts=pts;
 	t.sus=sus;
@@ -1383,11 +1383,11 @@ public void MP_HandleTick()
 	// extern int current_pattern;
 	//extern int count_pattern, count_song;
 	boolean reinit_audio=false;
-	
+
 	pause_flag=-128;
-	if(isfirst != 0){           
+	if(isfirst != 0){
 		/* don't handle the very first ticks, this allows the
-		   other hardware to settle down so we don't lose any 
+		   other hardware to settle down so we don't lose any
 		   starting notes
 		*/
 		isfirst--;
@@ -1419,7 +1419,7 @@ public void MP_HandleTick()
 
 		/* Do we have to get a new patternpointer ?
 		   (when mp_patpos reaches 64 or when
-		   a patternbreak is active). Also check for 256 - if mod 
+		   a patternbreak is active). Also check for 256 - if mod
 		   is broken it will continue forever otherwise */
 
 		if( mp_patpos == numrow || mp_patpos > 255 ) posjmp=3;
@@ -1462,7 +1462,7 @@ public void MP_HandleTick()
 				{
 				if(pause_flag==127)
                                     m_.usleep(1000); /* don't need to eat cpu time! */
-                                    
+
 				m_.UI.count_pattern++;
 				m_.UI.count_song++;
 				if(m_.quiet)
@@ -1492,13 +1492,13 @@ public void MP_HandleTick()
 
                     case MikMod.UI.myUI.UI_PREVIOUS_SONG: /* if halfway through mod restart it, if
 							          beginning jump to the previous one */
-						if ((m_.UI.count_song < MikMod.UI.myUI.SMALL_DELAY) && 
+						if ((m_.UI.count_song < MikMod.UI.myUI.SMALL_DELAY) &&
                             (m_.optind>1) )
 						{
 							m_.optind-=2;
 							m_.MPlayer.play_current=false;
 						}
-						else 
+						else
 						{
 							mp_sngpos=1;
 							MP_PrevPosition();
@@ -1793,7 +1793,7 @@ public void MP_SetPosition(short pos)
 	forbid=true;
 	posjmp=2;
 	patbrk=0;
-	mp_sngpos=pos; 
+	mp_sngpos=pos;
 	vbtick=mp_sngspd;
 	forbid=false;*/
 }

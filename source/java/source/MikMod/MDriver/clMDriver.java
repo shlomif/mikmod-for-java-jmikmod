@@ -22,7 +22,7 @@ public class clMDriver extends clMDriverBase
 
     	public clMain m_;
 
-        
+
 	public clDRIVER drivers[]; //[6];
 	public int num_drivers;
 
@@ -32,7 +32,7 @@ public class clMDriver extends clMDriverBase
         public int md_dmabufsize;
 	public short md_numchn;
 	public short md_bpm;
-	
+
 
 	protected RandomAccessFile sl_fp;
 	protected short sl_old;
@@ -55,7 +55,7 @@ public clMDriver(clMain theMain)
         sl_buffer = new short[1024];
 
         m_ = theMain;
-    
+
 	md_device = 0;
 	md_mixfreq = 44100;
 	md_mode = 0;
@@ -74,7 +74,7 @@ public clMDriver(clMain theMain)
         //memset(sl_buffer, 0, sizeof(sl_buffer));
         for(i=0;i<1024;i++)
             sl_buffer[i] = 0;
-        
+
 	isplaying = false;
 }
 
@@ -252,7 +252,6 @@ public boolean MD_Init()
 
 	if(md_device==0){
 
-		
 		for(t=num_drivers-1; t >= 0; t--){
 			//md_driver=drivers[t];
 			if(drivers[t].IsPresent()) break;

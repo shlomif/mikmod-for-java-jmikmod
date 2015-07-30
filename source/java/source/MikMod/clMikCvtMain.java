@@ -23,14 +23,14 @@ import MikMod.Loaders.*;
 class clMikCvtMDriver extends clMDriverBase
 {
 	public clMikCvtMain m_;
-    
-	public clMikCvtMDriver(clMikCvtMain theMain) 
-	{ 
+
+	public clMikCvtMDriver(clMikCvtMain theMain)
+	{
 		super(theMain);
-		m_ = theMain; 
+		m_ = theMain;
 	}
-    
-    
+
+
 public short MD_SampleLoad(RandomAccessFile fp, int length, int loopstart, int loopend, int flags)
 {
 	 /* record position of sample */
@@ -148,11 +148,11 @@ void Optimize(UNIMOD mf)
 	for (t = 0; t < mf.numtrk; t++) {
 
             /* ta is track to examine */
-    
+
             ta = mf.tracks[t];
-    
+
             /* does ta look familiar ? */
-    
+
             for (same = u = 0; u < newcnt; u++)
             {
                 if (TrkCmp(ta, newtrk[u])) {
@@ -168,7 +168,7 @@ void Optimize(UNIMOD mf)
                      ReplaceTrack(mf, t, newcnt);
                      newtrk[newcnt++] = ta;
             }
-    
+
             //printf("\rOptimizing: %d\r", (t * 100L) / mf.numtrk);
             System.out.print("\rOptimizing: " + (int)((t * 100L) / mf.numtrk) + "\r");
         }
@@ -176,7 +176,7 @@ void Optimize(UNIMOD mf)
         //printf("\rOptimized : %d tracks\n", done);
         System.out.print("\rOptimized : " + done + " tracks\n");
 
-        mf.tracks = null; 
+        mf.tracks = null;
 	mf.tracks = newtrk;
 	mf.numtrk = (short)newcnt;
 }
@@ -255,7 +255,7 @@ String stripname(String path, String ext)
             n = m+1;
 #endif*/
 	n = ( (n = path.lastIndexOf(System.getProperties().getProperty("file.separator")) ) == -1) ? 0 : n + 1;
-		
+
 	/* copy the filename into 'newname' */
 	//strncpy(newname,n,255);
         //newname[255]=0;
@@ -422,7 +422,7 @@ public int main(String argv[])
                 /* Write instruments */
 
                 mypos = fpo.getFilePointer();
-                
+
                 for (v = 0; v < mf.numins; v++) {
 
                         //INSTRUMENT *i = &mf.instruments[v];
@@ -486,17 +486,17 @@ public int main(String argv[])
 		/* Write tracks */
 
                 for (v = 0; v < mf.numtrk; v++) {
-                        
+
 			TrkWrite(mf.tracks[v]);
 		}
-                    
+
 		System.out.print("Writing samples.. ");
 
                 mypos = fpo.getFilePointer();
                 /* Write sample-data */
 
                 for (v = 0; v < numsamples; v++) {
-                        
+
                          //fseek(fpi, samplepos[v], SEEK_SET);
                          fpi.seek(samplepos[v]);
                          CopyData(fpi, fpo, samplesize[v]);
