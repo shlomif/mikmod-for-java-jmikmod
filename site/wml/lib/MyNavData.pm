@@ -2,9 +2,9 @@ package MyNavData;
 
 my $hosts =
 {
-    'berlios' => 
+    'berlios' =>
     {
-        'base_url' => "http://jmikmod.berlios.de/",
+        'base_url' => "http://jmikmod.shlomifish.org/",
     },
 };
 
@@ -48,7 +48,7 @@ my $tree_contents =
 
 sub get_params
 {
-    return 
+    return
         (
             'hosts' => $hosts,
             'tree_contents' => $tree_contents,
