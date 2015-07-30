@@ -32,7 +32,7 @@ public class Raw_Driver extends clDRIVER
     protected RandomAccessFile rawout;
 
     byte RAW_DMABUF[]; //[RAWBUFFERSIZE];
-    
+
 
 public Raw_Driver(clMain theMain)
 //	: clDRIVER(theMain)

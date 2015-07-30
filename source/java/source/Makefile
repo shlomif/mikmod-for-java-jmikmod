@@ -1,5 +1,5 @@
 # A GNU make makefile for MikMod for Java
-# 
+#
 # May be compatible with other make programs too, but I cannot guarantee
 # that
 #

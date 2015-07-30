@@ -64,7 +64,7 @@ public class ULT_Loader extends clLOADER
         public final int ULTS_REVERSE    = 16;
 
 
-    
+
         public final String ULT_Version[]={
                 "Ultra Tracker V1.3",
                 "Ultra Tracker V1.4",
@@ -79,7 +79,7 @@ public class ULT_Loader extends clLOADER
 public ULT_Loader(clMainBase theMain)
 {
         super(theMain);
-    
+
 	type = new String("ULT");
         version = new String("Portable ULT loader v0.1");
 
@@ -96,7 +96,7 @@ public boolean Test()
         int a;
 
         szShould_be.getBytes(0, 14, should_be, 0);
-        
+
         //if(!fread(id,15,1,m_.MLoader.modfp)) return 0;
         if (m_.MLoader.modfp.read(id,0,15) != 15) return false;
         for(a=0;a<14;a++)
@@ -162,7 +162,7 @@ public boolean Load()
     try {
 	int t,u,tracks=0;
         //INSTRUMENT *d;
-        int inst_num;        
+        int inst_num;
 	//SAMPLE *q;
 	ULTSAMPLE s = new ULTSAMPLE();
 	ULTHEADER mh = new ULTHEADER();
@@ -380,5 +380,5 @@ public boolean Load()
 
 
 
-        
+
 }

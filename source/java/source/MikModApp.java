@@ -80,7 +80,7 @@ public class MikModApp extends Applet implements Runnable
 
 	public void destroy()
         {
-            
+
 	}
 
         // This function is only used for applets, so it's not implemented
@@ -96,7 +96,7 @@ public class MikModApp extends Applet implements Runnable
 			m_MikModApp.start();
 		}
 	}
-	
+
 	public void stop()
 	{
 		if (m_MikModApp != null)
@@ -110,9 +110,9 @@ public class MikModApp extends Applet implements Runnable
 	public void run()
         {
 
-            
+
             MikMod.clMain theMikMod = new MikMod.clMain();
-            
+
             theMikMod.main(my_argv);
 
             stop();

@@ -4,7 +4,7 @@ Name:
 LOAD_STM.C
 
 Description:
-ScreamTracker 2 (STM) module Loader - Version 1.oOo Release 2 
+ScreamTracker 2 (STM) module Loader - Version 1.oOo Release 2
 A Coding Nightmare by Rao and Air Richter of HaRDCoDE
 You can now play all of those wonderful old C.C. Catch STM's!
 
@@ -87,7 +87,7 @@ protected STMHEADER mh;
 public STM_Loader(clMainBase theMain)
 {
         super(theMain);
-        
+
 	stmbuf = null;
 	mh = null;
 	type = new String("STM");
@@ -101,7 +101,7 @@ public boolean Test()
         (new String("!SCREAM!")).getBytes(0,8, should_be, 0);
         should_be[8] = (byte)0;
         int a;
-        
+
         m_.mmIO._mm_fseek(m_.MLoader.modfp,21,m_.mmIO.SEEK_SET);
         //fread(str,1,9,m_.MLoader.modfp);
         m_.MLoader.modfp.read(str,0,9);
@@ -113,7 +113,7 @@ public boolean Test()
         //if(!memcmp(str,"!SCREAM!",8) || (filetype[0]!=2)) /* STM Module = filetype 2 */
         if ((a != 8) || (filetype[0] != 2)) /* STM Module = filetype 2 */
               return false;
-        
+
         return true;
     }
     catch (IOException ioe1)
@@ -127,7 +127,7 @@ public boolean Test()
 public boolean Init()
 {
         int i, j;
-    
+
 	stmbuf=null;
         //if(!(mh=(STMHEADER *)m_.MLoader.MyCalloc(1,sizeof(STMHEADER)))) return 0;
         mh = new STMHEADER();
@@ -155,7 +155,7 @@ public boolean Init()
             for(j=0;j<4;j++)
                 mh.sample[i].reserved3[j] = 0;
         }
-        
+
 	return true;
 }
 

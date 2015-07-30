@@ -69,7 +69,7 @@ class MODTYPE
 	}
 	public MODTYPE(String init_id, int init_chn, String init_name)
 	{
-		id = new byte[5]; 
+		id = new byte[5];
 		init_id.getBytes(0,4,id,0);
 		id[4] = '\0';
 
@@ -175,7 +175,7 @@ public boolean Test()
 	}
 
 	return false;
-	
+
 	}
 	catch (IOException ioe1)
 	{
@@ -202,7 +202,7 @@ public boolean Init()
         for(i=0;i<4;i++)
             mh.magic2[i] = 0;
 
-        
+
         for(i=0;i<31;i++)
         {
             mh.samples[i].length = mh.samples[i].reppos =
@@ -211,14 +211,14 @@ public boolean Init()
             for(j=0;j<22;j++)
                 mh.samples[i].samplename[j] = 0;
         }
-        
+
 	return true;
 }
 
 
 public void Cleanup()
 {
-        if (mh != null) mh = null;    
+        if (mh != null) mh = null;
         if(patbuf!=null) patbuf = null;
 }
 
@@ -296,7 +296,7 @@ public boolean ML_LoadPatterns()
             patbuf[t].a = patbuf[t].b = patbuf[t].c = patbuf[t].d = 0;
         }
 
-        
+
 	for(t=0;t<m_.MLoader.of.numpat;t++){
 
 		/* Load the pattern into the temp buffer
@@ -320,7 +320,7 @@ public boolean ML_LoadPatterns()
 
 public boolean Load()
 {
-	try 
+	try
 	{
 
 	int t,modtype;

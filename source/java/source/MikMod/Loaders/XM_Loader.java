@@ -128,7 +128,7 @@ public class XM_Loader extends clLOADER
 public XM_Loader(clMainBase theMain)
 {
         super(theMain);
-    
+
 	mh = null;
 
 	type = new String("XM");
@@ -170,9 +170,9 @@ public boolean Init()
         mh = new XMHEADER();
 
         mh.version = mh.headersize = mh.restart = mh.tempo = mh.bpm = 0;
-            mh.songlength = 
+            mh.songlength =
             mh.numchn = mh.numpat = mh.numins = mh.flags = (short)0;
-            
+
         for(i=0;i<17;i++)
             mh.id[i] = 0;
         for(i=0;i<21;i++)
@@ -481,14 +481,14 @@ public boolean Load()
                 xmpat = new XMNOTE[ph.numrows*m_.MLoader.of.numchn];
                 for(i=0 ; i<ph.numrows*m_.MLoader.of.numchn ; i++)
                     xmpat[i] = new XMNOTE();
-                
+
                 for(i=0;i<ph.numrows*m_.MLoader.of.numchn;i++)
                 {
                     xmpat[i].note = xmpat[i].ins = xmpat[i].vol =
                         xmpat[i].eff = xmpat[i].dat = 0;
                 }
-                
-                    
+
+
 		if(ph.packsize>0){
 			for(u=0;u<ph.numrows;u++){
 				for(v=0;v<m_.MLoader.of.numchn;v++){
@@ -610,7 +610,7 @@ public boolean Load()
                             m_.MLoader.of.instruments[inst_num].panenv[i].pos = (short)(pth.panenv[i*4] + (pth.panenv[i*4+1]<<8));
                             m_.MLoader.of.instruments[inst_num].panenv[i].val = (short)(pth.panenv[i*4+2] + (pth.panenv[i*4+3]<<8));
                         }
-                        
+
 
 /*
             for (i = 0; i < 12; i++)
@@ -713,6 +713,6 @@ public boolean Load()
     {
         return false;
     }
-}        
+}
 
 }

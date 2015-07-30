@@ -8,7 +8,7 @@ Curses parser for Tracker-like controls - bare linux (unix?) version.
 Shamelessly adapted from tracker v4.3 by Marc Espie
 
 By using the UI_... return style, an X equivalent should drop in as a
-replacement. 
+replacement.
 
 Steve McIntyre <stevem@chiark.greenend.org.uk>
 
@@ -98,7 +98,7 @@ public int may_getchar()
         return EOF;
         #endif*/
     return -1;
-        
+
 	/*if (buffer != ERR)
 		return buffer;
 	else

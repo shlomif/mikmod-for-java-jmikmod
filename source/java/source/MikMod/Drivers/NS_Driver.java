@@ -19,7 +19,7 @@ import MikMod.*;
 public class NS_Driver extends clDRIVER
 {
     byte buf[];
-    
+
 public NS_Driver(clMain theMain)
 {
     super(theMain);

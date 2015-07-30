@@ -13,8 +13,8 @@ public class clMainBase extends Object
 	public final String mikbannerhead = "\n" + mikversion_ +
 		" - main code (in ANSI C) by MikMak <mikmak@via.nl>\n" +
 		" - ported to Java by Shlomi Fish ( http://www.shlomifish.org/ )\n";
-	
-	public final String mikbannerdriver =  
+
+	public final String mikbannerdriver =
 		" - Java sound drivers by Shlomi Fish ( http://www.shlomifish.org/ )\n";
 
 	public final String mikbannertail =

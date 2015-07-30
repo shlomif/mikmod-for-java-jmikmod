@@ -19,21 +19,21 @@ import MikMod.*;
 public class clVirtch extends Object
 {
 	public clMain m_;
-            
+
         public static final int TICKLSIZE = 3600;
         public static final int TICKWSIZE = (TICKLSIZE*2);
         public static final int TICKBSIZE = (TICKWSIZE*2);
 
-            
+
 
         /*
                 max. number of handles a driver has to provide. (not strict)
         */
-        
+
         public static final int MAXSAMPLEHANDLES = 128;
 
 
-        
+
 
 	protected int VC_TICKBUF[]; //[TICKLSIZE];
 	protected VINFO vinf[]; //[32];
@@ -53,7 +53,7 @@ public class clVirtch extends Object
 
 	protected int iWhichSampleMixFunc;
 	protected int TICKLEFT;
-        
+
 
         protected static final int FRACBITS = 11;
         protected static final int FRACMASK = ((1<<FRACBITS)-1);
@@ -69,12 +69,12 @@ public clVirtch(clMain theMain)
             vinf[i] = new VINFO();
 
         Samples = new byte [MAXSAMPLEHANDLES][];
-        
 
-        
+
+
         m_ = theMain;
-        
-    
+
+
         //memset(VC_TICKBUF, 0, sizeof(VC_TICKBUF));
         for(i=0;i<TICKLSIZE;i++)
             VC_TICKBUF[i] = 0;
@@ -90,7 +90,7 @@ public clVirtch(clMain theMain)
             vinf[i].handle = vinf[i].vol = vinf[i].pan = (short)0;
             vinf[i].kick = vinf[i].active = false;
         }
-        
+
 	vnf = null;
 
 	samplesthatfit = 0;
@@ -127,7 +127,7 @@ protected void VC_Sample32To16Copy(int srce[],byte dest[],int dest_offset, int c
 	int c;
 	int shifti=(16-ampshift);
         int src_idx=0, dest_idx=dest_offset;
-        
+
 	while((count--) != 0){
 		c=srce[src_idx] >> shifti;
 		if(c>32767) c=32767;
@@ -251,7 +251,7 @@ public short VC_SampleLoad(RandomAccessFile fp,int length,int reppos,int repend,
 public void VC_SampleUnload(short handle)
 {
         //delete [] Samples[handle];
-    
+
 	Samples[handle]=null;
 }
 
@@ -284,7 +284,7 @@ protected void MixMonoNormal(byte srce[],int dest[],int dest_offset, int index,i
 {
 	byte sample;
         int dest_idx=dest_offset;
-        
+
 	while(todo>0){
 		sample=srce[index>>FRACBITS];
 		dest[dest_idx++]+=lvolmul*sample;
@@ -298,7 +298,7 @@ protected void MixStereoInterp(byte srce[],int dest[],int dest_offset, int index
 {
 	short sample,a,b;
         int dest_idx=dest_offset;
-        
+
 	while(todo>0){
 		a=srce[index>>FRACBITS];
 		b=srce[1+(index>>FRACBITS)];
@@ -316,7 +316,7 @@ protected void MixMonoInterp(byte srce[],int dest[],int dest_offset, int index,i
 {
 	short sample,a,b;
         int dest_idx=dest_offset;
-        
+
 	while(todo>0){
 		a=srce[index>>FRACBITS];
 		b=srce[1+(index>>FRACBITS)];
@@ -652,7 +652,7 @@ public void VC_SilenceBytes(byte buf[],short todo)
             //memset(buf,0x80,todo);
             for(i=0;i<todo;i++)
                 buf[i] = (byte)0x80;
-            
+
         }
 }
 

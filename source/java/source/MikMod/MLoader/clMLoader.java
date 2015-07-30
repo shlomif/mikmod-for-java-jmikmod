@@ -24,7 +24,7 @@ public class clMLoader extends Object
 	8363,	8413,	8463,	8529,	8581,	8651,	8723,	8757,
 	7895,	7941,	7985,	8046,	8107,	8169,	8232,	8280
         };
-        
+
 	public clMainBase m_;
 
 
@@ -108,7 +108,7 @@ public boolean AllocPatterns()
         of.pattrows = new int [of.numpat];
         for(t=0 ; t < of.numpat ; t++)
             of.pattrows[t] = 0;
-        
+
 
 	for(t=0;t<of.numpat;t++){
 		of.pattrows[t]=64;
@@ -155,7 +155,7 @@ public boolean AllocInstruments()
                 of.instruments[i].vibsweep = of.instruments[i].vibdepth =
                 of.instruments[i].vibrate = (short)0;
 				of.instruments[i].volfade = 0;
-            
+
             of.instruments[i].insname = null;
             of.instruments[i].samples = null;
 
@@ -186,7 +186,7 @@ public boolean AllocSamples(INSTRUMENT i)
 				}
                 for(u=0;u<n;u++)
                 {
-                    i.samples[u].c2spd = 
+                    i.samples[u].c2spd =
                         i.samples[u].length = i.samples[u].loopstart =
                         i.samples[u].loopend = i.samples[u].flags =
                         i.samples[u].seekpos = i.samples[u].handle = 0;
@@ -452,7 +452,7 @@ public UNIMOD ML_LoadFP(RandomAccessFile fp)
         /*
          I removed the calloc-like nullization because it's needless in this context.
          */
-        
+
 
 	/* Copy the static UNIMOD contents
 	into the dynamic UNIMOD struct */
@@ -482,7 +482,7 @@ public UNIMOD ML_LoadFP(RandomAccessFile fp)
         mf.patterns = of.patterns;
         mf.pattrows = of.pattrows;
         mf.tracks = of.tracks;
-        
+
 
 	return mf;
 }
@@ -495,7 +495,7 @@ public UNIMOD ML_LoadFN(String filename)
         //if((fp=fopen((const char*)*filename,"rb"))==NULL){
         try
         {
-        
+
         if ( (fp = new RandomAccessFile(filename, "r")) == null) {
 		m_.mmIO.myerr="Error opening file";
 		m_.mmIO.myerr_file=filename;

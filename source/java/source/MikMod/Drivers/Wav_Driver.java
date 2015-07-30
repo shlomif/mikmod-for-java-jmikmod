@@ -23,7 +23,7 @@ public class Wav_Driver extends clDRIVER
     protected int dumpsize;
 
     byte audiobuffer[]; //[BUFFERSIZE];
-    
+
 
 public Wav_Driver(clMain theMain)
 {
@@ -54,7 +54,7 @@ protected void PutHeader()
                 (m_.MDriver.isStereo()?2:1)*
 	            (m_.MDriver.is16Bits()?2:1),
                 wavout);
-    m_.mmIO._mm_write_I_UWORD((m_.MDriver.is16Bits()?2:1)* 
+    m_.mmIO._mm_write_I_UWORD((m_.MDriver.is16Bits()?2:1)*
 	                  (m_.MDriver.isStereo()?2:1),wavout);
     m_.mmIO._mm_write_I_UWORD(m_.MDriver.is16Bits()?16:8,
             wavout);

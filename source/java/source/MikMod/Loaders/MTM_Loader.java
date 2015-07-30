@@ -103,7 +103,7 @@ public boolean Test()
 public boolean Init()
 {
         int i;
-    
+
 	mtmtrk=null;
 	mh=null;
 
@@ -111,29 +111,29 @@ public boolean Init()
         mtmtrk = new MTMNOTE[64];
         for(i=0;i<64;i++)
             mtmtrk[i] = new MTMNOTE();
-        
+
         for(i=0;i<64;i++)
         {
             mtmtrk[i].a = mtmtrk[i].b = mtmtrk[i].c = 0;
         }
-        
+
         //if(!(mh=(MTMHEADER *)m_.MLoader.MyCalloc(1,sizeof(MTMHEADER)))) return 0;
         mh = new MTMHEADER();
-        mh.version = mh.numtracks = mh.lastpattern = mh.lastorder = 
+        mh.version = mh.numtracks = mh.lastpattern = mh.lastorder =
             mh.numsamples = mh.attribute =
             mh.beatspertrack = mh.numchannels =  (short)0;
 
         mh.id[0] = mh.id[1] = mh.id[2] = (byte)0;
 
         mh.commentsize = 0;
-        
+
 
         for(i=0;i<20;i++)
             mh.songname[i] = 0;
 
         for(i=0;i<32;i++)
             mh.panpos[i] = 0;
-        
+
 	return true;
 }
 
@@ -340,5 +340,5 @@ public boolean Load()
 }
 
 
-        
+
 }

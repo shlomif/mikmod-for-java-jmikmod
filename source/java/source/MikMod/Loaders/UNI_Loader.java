@@ -23,7 +23,7 @@ public class UNI_Loader extends clLOADER
 public UNI_Loader(clMainBase theMain)
 {
         super(theMain);
-    
+
 	type = new String("UNI");
 	version = new String("Portable UNI loader v0.3");
 }
@@ -76,7 +76,7 @@ public String StrRead()
 	s= new byte[len+1];
         //fread(s,len,1,m_.MLoader.modfp);
         m_.MLoader.modfp.read(s,0,len);
-        
+
 	s[len]=0;
 
         ret = new String(s, 0, 0, len);
@@ -112,7 +112,7 @@ public short [] TrkRead()
                 wordTrk[i] += 256;
         }
         t = null;
-        
+
         return wordTrk;
 
         }

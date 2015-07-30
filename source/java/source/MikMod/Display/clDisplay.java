@@ -7,7 +7,7 @@ Description:
 Ncurses display section of mikmod - bare unix version.
 
 Should deal with all the m_.quiet options and refresh() after ncurses calls,
-so just call these functions direct wherever needed. 
+so just call these functions direct wherever needed.
 
 Steve McIntyre <stevem@chiark.greenend.org.uk>
 
@@ -47,7 +47,7 @@ public class clDisplay extends clDisplayBase
 "                                                .|....'\n"
 
         ;
-            
+
         public final String extractbanner =
 "'||''''|          .                         .   ||\n"+
 " ||  .   ... ....||. ... ..  ....    .... .||. ... .. ...   ... . \n"+
@@ -55,12 +55,12 @@ public class clDisplay extends clDisplayBase
 " ||        .|.   ||   ||    .|' || ||      ||   ||  ||  ||  |'' \n"+
 ".||.....|.|  ||. '|.'.||.   '|..'|' '|...' '|.'.||..||. ||.'||||. \n"+
 "                                                          .|....'\n"
-    
+
         ;
-            
+
 
 	protected int cWritten;
-    
+
 
 public clDisplay(clMain theMain)
 {
@@ -86,10 +86,10 @@ public void endwin() {}
 public void init_display()
 {
 	if(m_.quiet) return;
-	initscr(); 
-	cbreak(); 
-	noecho(); 
-	nonl(); 
+	initscr();
+	cbreak();
+	noecho();
+	nonl();
 	nodelay(stdscr, true);
 	keypad(stdscr, true);
         m_.cur_mod.version = m_.mikversion;
@@ -101,60 +101,60 @@ public void display_version()
 	if(m_.quiet) return;
 
 	/* always use display_verion first, so clear call is OK here... */
-	clear(); 
+	clear();
 
 	addstr(m_.cur_mod.version);
 	refresh();
-}	
+}
 
 public void display_driver()
 {
 	if(m_.quiet) return;
 	addstr(m_.cur_mod.driver);
 	refresh();
-}	
+}
 
 public void display_file()
 {
         if(m_.quiet) return;
         addstr(m_.cur_mod.file_output);
 	refresh();
-}	
+}
 
 public void display_name()
 {
 	if(m_.quiet) return;
 	addstr(m_.cur_mod.name_type);
 	refresh();
-}	
+}
 
 public void display_status()
 {
 	if(m_.quiet) return;
 	addstr(m_.cur_mod.status);
 	refresh();
-}	
+}
 
 public void display_pausebanner()
 {
 	if(m_.quiet) return;
 	addstr(pausebanner);
 	refresh();
-}	
+}
 
 public void display_extractbanner()
 {
 	if(m_.quiet) return;
 	addstr(extractbanner);
 	refresh();
-}	
+}
 
 public void display_loadbanner()
 {
 	if(m_.quiet) return;
 	addstr(loadbanner);
 	refresh();
-}	
+}
 
 public void display_error(String myerr, String myerr_file)
 {
@@ -168,7 +168,7 @@ public void display_error(String myerr, String myerr_file)
         catch (InterruptedException intexp1)
         {
         }
-}	
+}
 
 public void display_driver_error(String myerr)
 {
@@ -176,7 +176,7 @@ public void display_driver_error(String myerr)
         //printw("Driver error: %s.\n",(const char *)*myerr);
         addstr("Driver error: " + myerr + ".\n");
 	refresh();
-}	
+}
 
 public void display_all()
 {
@@ -186,7 +186,7 @@ public void display_all()
 	display_file();
 	display_name();
 	display_status();
-}	
+}
 
 public void update_driver_display()
 {
@@ -197,7 +197,7 @@ public void update_driver_display()
             (((m_.MDriver.md_mode & m_.DMODE_INTERP) != 0) ? "interpolated":"normal") + " " +
             (((m_.MDriver.md_mode & m_.DMODE_STEREO) != 0) ? "stereo":"mono") + ", " +
             m_.MDriver.md_mixfreq + " Hz\n";
-            
+
 }
 
 public void update_file_display()
@@ -235,6 +235,6 @@ public void exit_display()
 }
 
 
-    
+
 
 }

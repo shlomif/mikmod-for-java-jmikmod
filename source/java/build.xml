@@ -32,7 +32,7 @@
     <jar jarfile="${dist}/lib/${ant.project.name}-${version}.jar" basedir="${build}"/>
   </target>
 
-  <target name="src_dist" 
+  <target name="src_dist"
         description="generate the source distribution" >
     <!-- Create the distribution directory -->
     <mkdir dir="${src_dist}/"/>

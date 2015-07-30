@@ -55,11 +55,11 @@ public class clMUniTrk extends Object
     /*
             Unimod flags
     */
-    
+
     public static final int UF_XMPERIODS =  1;               /* if set use XM periods/finetuning */
     public static final int UF_LINEAR    =  2;               /* if set use LINEAR periods */
 
-        
+
 
 	public short [] rowstart;		/* startadress of a row */
 	public int rowend; //short *rowend;      	/* endaddress of a row (exclusive) */
@@ -157,7 +157,7 @@ protected short unioperands[]={
 public clMUniTrk(clMainBase theMain)
 {
         m_ = theMain;
-    
+
 	rowstart = null;
 	rowend = 0;
 	rowpc = 0;
@@ -308,7 +308,7 @@ public void UniPTEffect(short eff,short dat)
 {
     eff &= 0xFF;
     dat &= 0xFF;
-    
+
 	if(eff!=0 || dat!=0){				/* don't write empty effect */
 		UniWrite((short)(UNI_PTEFFECT0+eff));
 		UniWrite(dat);
@@ -378,7 +378,7 @@ public short [] UniDup()
         //memcpy(d,unibuf,unipc*2);
         for(i=0; i<unipc; i++)
             d[i] = unibuf[i];
-        
+
 	return d;
 }
 
