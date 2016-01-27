@@ -107,7 +107,7 @@ methods like System.arraycopy. I'd rather not because of byte-sex
 compatibility.
 
 Another note: as I found out, when allocating an array of strings in
-Java, one also has to instantize every member. For example where in ANSI C
+Java, one also has to instantiate every member. For example where in ANSI C
 one would use:
 
 mystruct * array = malloc(sizeof(mystruct) * 10);
