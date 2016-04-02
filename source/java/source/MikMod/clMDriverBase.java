@@ -9,7 +9,7 @@ public class clMDriverBase extends Object
         /*
                 Sample format flags:
         */
-        
+
         public final int SF_16BITS  =            1;
         public final int SF_SIGNED  = 	          2;
         public final int SF_DELTA  =             4;
@@ -18,8 +18,8 @@ public class clMDriverBase extends Object
         public final int SF_BIDI  =             32;
         public final int SF_OWNPAN =            64;
         public final int SF_REVERSE =   	128;
-        
-        
+
+
         public clMDriverBase() {}
         public clMDriverBase(clMainBase theMain) {m_ = theMain;}
         public short MD_SampleLoad(RandomAccessFile fp,int size,int reppos,int repend,int flags) { return 1;}
