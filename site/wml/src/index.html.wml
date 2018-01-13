@@ -23,6 +23,18 @@ JavaScript/WebAudio port of libxmp</a>.
 
 <h2>News</h2>
 
+<h3>13-January-2018</h3>
+
+<div class="textblock">
+
+<p>
+The source of the player and this site was moved to
+<a href="https://github.com/shlomif/mikmod-for-java-jmikmod">a GitHub
+repository</a>, but it is unlikely to be of much interest to anyone.
+</p>
+
+</div>
+
 <h3>31-March-2005</h3>
 <div class="textblock">
 <p>
